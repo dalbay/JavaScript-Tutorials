@@ -1,6 +1,6 @@
 # JAVASCRIPT LANGUAGE FUNDAMENTALS
 
-Create a Simple HTML structure – 
+## Create a Simple HTML structure – 
 –	VS-Code includes emit by default which allows us to use shortcuts 
 ! tab    for basic HTML structure.
 –	Open file with Life Server  right click ‘open with life server’
@@ -8,12 +8,12 @@ Create a Simple HTML structure –
 –	Open up console in browser  F12
 –	You can write all the code inside the console, change and manipulate the document
 –	You can also print output to console 
-Log to the Console - from your JavaScript file.
-Log to console - string
+## Log to the Console - from your JavaScript file.
+### Log to console - string
 console.log('Hello World');  this will print out to the console
 Hello World
 
-Log arrays to the console:
+### Log arrays to the console:
 console.log([1,2,3,4]);
  [object Array]: [1, 2, 3, 4]
 0: 1
@@ -22,7 +22,7 @@ console.log([1,2,3,4]);
 3: 4
 length: 4
 
-Log objects - this is an object literal
+### Log objects - this is an object literal
 console.log({a:1, b:2});
 [object Object]: {a: 1, b: 2}
 a: 1
@@ -40,20 +40,20 @@ console.time('Some text');
 
 
 
-Variables and Declaration
-var, let, const
+## Variables and Declaration
+### var, let, const
 
 var name = 'John Doe';
 console.log(name);
 name = 'Steve Smith';
 console.log(name);
 
-Init var
+### Init var
 var greeting;
 console.log(greeting);   undefined
 
 	To comment everything out  Highlight everything and Crtl + / 
-LET
+### LET
 /** is identical when it comes to global scope
  * has advantages when it comes to block level scoping
  */
@@ -83,7 +83,7 @@ const person  = {
 //can't do (assign a new array)->
  numbers = [1,2,3,4,5,6,7];
 0: Assignment to const
-Primitive Data Types vs. Reference Types
+## Primitive Data Types vs. Reference Types
 JavaScript is a Dynamically Typed Language. 
 –	Types are associated with values not variables
 –	The same variable can hold multiple types
