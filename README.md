@@ -11,7 +11,7 @@ Contents
   - Variables and Declaration	2
 	- var, let, const	2
 	- Init var	2
-	- ET	2
+	- LET	2
 	- CONST	2
   - Primitive Data Types vs. Reference Types	3
 	- PRIMITIVE	3
