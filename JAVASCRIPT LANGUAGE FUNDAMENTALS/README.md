@@ -336,14 +336,16 @@ console.log(val);
 ```
 ## Template Literals
 
-	A lot of times, you will be inserting HTML from JavaScript; when you fetch something through Ajax and you want to put in something in an unordered list or a table with dynamic data, you going to do that with JavaScript.
+A lot of times, you will be inserting HTML from JavaScript; when you fetch something through Ajax and you want to put in something in an unordered list or a table with dynamic data, you going to do that with JavaScript.
+```JavaScript
 const name = 'John';
 const age = 31;
 const job = 'Web Developer';
 const city = 'Miami';
 let html;
-
-Without template strings (es5)
+```
+### Without template strings (es5)
+```JavaScript
 html = '<ul><li>Name: ' + name + '</li><li>Age: ' + age + ' </li><li>Job: '+ job+ ' </li><li>City: '+ city +' </li></ul>';
 
 html = '<ul>' +
@@ -356,8 +358,9 @@ html = '<ul>' +
 function hello(){
   return 'hello';
 }
-
-With template strings (es6)
+```
+### With template strings (es6)
+```JavaScript
 html = `
   <ul>
     <li>Name: ${name}</li>
@@ -371,7 +374,7 @@ html = `
 `;
 
 document.body.innerHTML = html;
-
+```
 Output: 
 •	Name: John
 •	Age: 31
@@ -380,43 +383,68 @@ Output:
 •	4
 •	hello
 •	Over 30
-Arrays & Array Methods
-Create some arrays
+## Arrays & Array Methods
+### Create some arrays
+```JavaScript
 const numbers = [43,56,33,23,44,36,5];
 const numbers2 = new Array(22,45,33,76,54);
 const fruit = ['Apple', 'Banana', 'Orange', 'Pear'];
 const mixed = [22, 'Hello', true, undefined, null, {a:1, b:1}, new Date()];
 
 let val;
-
-Get array length
+```
+### Get array length
+```JavaScript
 val = numbers.length;
-Check if is array
+```
+### Check if is array
+```JavaScript
 val = Array.isArray(numbers);
-Get single value
+```
+### Get single value
+```JavaScript
 val = numbers[3];
 val = numbers[0];
-Insert into array
+```
+### Insert into array
+```JavaScript
 numbers[2] = 100;
-Find index of value
+```
+### Find index of value
+```JavaScript
 val = numbers.indexOf(36);
-
-MUTATING ARRAYS
-Add on to end
+```
+### MUTATING ARRAYS
+#### Add on to end
+```JavaScript
 numbers.push(250);
-Add on to front
+```
+#### Add on to front
+```JavaScript
 numbers.unshift(120);
-Take off from end
+```
+#### Take off from end
+```JavaScript
 numbers.pop();
-Take off from front
+```
+#### Take off from front
+```JavaScript
 numbers.shift();
-Splice values
+```
+#### Splice values
+```JavaScript
 numbers.splice(1,3);
-Reverse
+```
+#### Reverse
+```JavaScript
 numbers.reverse();
-Concatenate array
+```
+#### Concatenate array
+```JavaScript
 val = numbers.concat(numbers2);
-Sorting arrays
+```
+#### Sorting arrays
+```JavaScript
 val = fruit.sort();
 val = numbers.sort();
 
@@ -424,13 +452,15 @@ val = numbers.sort();
 val = numbers.sort(function(x, y){
     return x - y;
 });
-
-Reverse sort
+```
+#### Reverse sort
+```JavaScript
 val = numbers.sort(function(x, y){
   return y - x;
 });
-
-Find - returns the first value
+```
+#### Find - returns the first value
+```JavaScript
 function over50(num){
   return num > 50;
 }
@@ -439,8 +469,8 @@ val = numbers.find(over50);
 console.log(numbers);
 console.log(val);
 
-
-Object Literals
+```
+## Object Literals
 
 const person = {
     firstName: 'Steve',
