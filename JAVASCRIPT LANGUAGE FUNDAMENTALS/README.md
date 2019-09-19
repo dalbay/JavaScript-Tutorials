@@ -151,35 +151,40 @@ const today = new Date();
 console.log(today);  Sat Jul 13 2019 00:46:51 GMT-0400 (Eastern Daylight Time)
 console.log(typeof today);  object
 ```
-Type Conversion
+## Type Conversion
 When you are taking input from a form, that will be string by default; for calculation you need to parse it to a number.
-
+```JavaScript
 let val;
 // use let, var would give you an error here
+```
 
-Number to string
+### Number to string
+```JavaScript
 val = String(555);
 val = String(4+4);  // this will override val
 // Output
 console.log(val);   8
 console.log(typeof val);    string 
 console.log(val.length);    1
-
-Bool to String
+```
+### Bool to String
+```JavaScript
 val = String(true);
 // Output
 console.log(val);    true
 console.log(typeof val);    string
 console.log(val.length);    4
-
-Date to String
+```
+### Date to String
+```JavaScript
 val = String(new Date());
 // Output
 console.log(val);    Sun Jul 14 2019 14:21:22 GMT-0400 (Eastern Daylight Time)
 console.log(typeof val);   string
 console.log(val.length);    57
-
-Array to String
+```
+### Array to String
+```JavaScript
 val = String([1,2,3,4]);
 // Output
 console.log(val);   1,2,3,4
@@ -189,22 +194,25 @@ console.log(val.length);    7
 In addition to the String() function, you can also use the toString() method..
 val = (5).toString();
 val = (true).toString();
-
-String to number
+```
+### String to number
+```JavaScript
 val = Number('5');
 Output
 console.log(val);  5
 console.log(typeof val);    number
-
-toFixed() - allows us to specify decimals.
+```
+### toFixed() - allows us to specify decimals.
+```JavaScript
 console.log(val.toFixed(2));   5.00
 
 In addition to the Number() function, you can also use the parseInt() method..
 val = parseInt('5');
 val = parseFloat('105.50');  -- for decimals
+```
 
-
-Numbers & The Math Object
+## Numbers & The Math Object
+```JavaScript
 const num1 = 100;
 const num2 = 50;
 let val;
@@ -229,12 +237,12 @@ val = Math.random();   this will give us a random decimal.
 val = Math.floor(Math.random() * 20 + 1);   this will give you a random whole number; 20 is the max number that we want
 
 console.log(val);
+```
 
 
 
-
-String Method & Concatenation
-
+## String Method & Concatenation
+```JavaScript
 const firstName = 'William';
 const lastName = 'Johnson';
 const age = 36;
@@ -243,49 +251,61 @@ const tags = 'web design,web development,programming';
 
 let val;
 val = firstName + lastName;
-
-Concatenation
+```
+### Concatenation
+```JavaScript
 val = firstName + ' ' + lastName;
-
-Append
+```
+### Append
+```JavaScript
 val = 'Brad ';
 val += 'Traversy';
 
 val = 'Hello, my name is ' + firstName + ' and I am ' + age;
-
-Escaping
+```
+### Escaping
+```JavaScript
 val =  'That\'s awesome, I can\'t wait';
-
-Length
+```
+### Length
+```JavaScript
 val = firstName.length;
-
-concat()
+```
+### concat()
+```JavaScript
 val = firstName.concat(' ', lastName);
-
-Change case
+```
+### Change case
+```JavaScript
 val = firstName.toUpperCase();
 val = firstName.toLowerCase();
 
 val = firstName[2];
-
-indexOf()
+```
+### indexOf()
+```JavaScript
 val = firstName.indexOf('l');
 val = firstName.lastIndexOf('l');
-
-charAt()
+```
+### charAt()
+```JavaScript
 val = firstName.charAt('2');
-
-Get last char
+```
+### Get last char
+```JavaScript
 val = firstName.charAt(firstName.length - 1);
-
-substring()
+```
+### subString()
+```JavaScript
 val = firstName.substring(0, 4);
-
-slice()
+```
+### slice()
+```JavaScript
 val = firstName.slice(0,4);
 val = firstName.slice(-3);
-
-split()
+```
+### split()
+```JavaScript
 val = str.split(' ');   This will give us an array
 				[object Array]: ["Hello", "there", "my", "name", "is", "Brad"]
 0: "Hello"
@@ -302,17 +322,19 @@ val = tags.split(',');
 1: "web development"
 2: "programming"
 length: 3
-
-replace()
+```
+### replace()
+```JavaScript
 val = str.replace('Brad', 'Jack');
-
-includes()
+```
+### includes()
+```JavaScript
 val = str.includes('foo');
 
 console.log(val);
 
-
-Template Literals
+```
+## Template Literals
 
 	A lot of times, you will be inserting HTML from JavaScript; when you fetch something through Ajax and you want to put in something in an unordered list or a table with dynamic data, you going to do that with JavaScript.
 const name = 'John';
