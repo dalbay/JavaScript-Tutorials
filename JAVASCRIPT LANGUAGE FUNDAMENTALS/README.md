@@ -471,7 +471,7 @@ console.log(val);
 
 ```
 ## Object Literals
-
+```JavaScript
 const person = {
     firstName: 'Steve',
     lastName: 'Smith',
@@ -500,8 +500,9 @@ const person = {
   val = person.getBirthYear();
   
   console.log(val);
-  
-  array of objects
+ ```
+ ### Array of Objects
+ ```JavaScript
   const people = [  
     {name: 'John', age: 30},
     {name: 'Mike', age: 23},
@@ -511,10 +512,10 @@ const person = {
   for(let i = 0; i < people.length; i++){
     console.log(people[i].name);
   }
+```
 
-
-Date & Time
-
+## Date & Time
+```JavaScript
 let val;
 const today = new Date();  // today will be todays date
 let birthday = new Date('9-10-1981 11:25:00');
@@ -538,6 +539,8 @@ birthday.setHours(3);
 birthday.setMinutes(30);
 birthday.setSeconds(25);
 console.log(birthday);
-If Statements & Comparison Operators
+```
+
+## If Statements & Comparison Operators
 
 
