@@ -10,34 +10,42 @@
 –	You can also print output to console 
 ## Log to the Console - from your JavaScript file.
 ### Log to console - string
+```JavaScript
 console.log('Hello World');  this will print out to the console
+```
 Hello World
 
 ### Log arrays to the console:
+```JavaScript
 console.log([1,2,3,4]);
+```
  [object Array]: [1, 2, 3, 4]
 0: 1
 1: 2
 2: 3
 3: 4
+
 length: 4
 
 ### Log objects - this is an object literal
+```JavaScript
 console.log({a:1, b:2});
+```
 [object Object]: {a: 1, b: 2}
 a: 1
 b: 2
 __proto__: Object
 
-–	Print out the object on the console as a table  console.table({a:1, b:2});
-–	Pring out as an error; this will print out in red  console.error('This is an error');
-–	Print out a warning      console.warn('this is a warning');
-–	Clear the console      console.clear();
-–	Display how long something takes in your script to process 
-console.time('Some text');
+–	Print out the object on the console as a table -> ```console.table({a:1, b:2});```
+–	Pring out as an error; this will print out in red ->``` console.error('This is an error');```
+–	Print out a warning   ->```   console.warn('this is a warning');```
+–	Clear the console   ->```   console.clear();```
+–	Display how long something takes in your script to process ->
+ ```JavaScript 
+ console.time('Some text');
    // script here ... 
 console.time('Some text');
-
+```
 
 
 ## Variables and Declaration
@@ -57,7 +65,8 @@ console.log(greeting);   undefined
 /** is identical when it comes to global scope
  * has advantages when it comes to block level scoping
  */
-let name = 'John Doe';
+let name = 'John Doe';+
+
 console.log(name);
 name = 'Steve Smith';
 console.log(name);
