@@ -50,33 +50,35 @@ console.time('Some text');
 
 ## Variables and Declaration
 ### var, let, const
-
+```JavaScript
 var name = 'John Doe';
 console.log(name);
 name = 'Steve Smith';
 console.log(name);
+```
 
 ### Init var
+```JavaScript
 var greeting;
-console.log(greeting);   undefined
-
-	To comment everything out  Highlight everything and Crtl + / 
+console.log(greeting);  -> undefined
+```
+*	To comment everything out  Highlight everything and Crtl + / *
 ### LET
-/** is identical when it comes to global scope
- * has advantages when it comes to block level scoping
- */
+- is identical when it comes to global scope
+- has advantages when it comes to block level scoping
+```JavaScript
 let name = 'John Doe';+
 
 console.log(name);
 name = 'Steve Smith';
 console.log(name);
+```
+### CONST
 
-CONST
-/**
- * cant change/reassign a value
- * have to assign a value, cannot be instantiated
- * we can change arrays and object but we can’t redeclare them to new values
- */
+- can't change/reassign a value
+- have to assign a value, cannot be instantiated
+- we can change arrays and object but we can’t redeclare them to new values
+```JavaScript
 const person  = {
     name: 'John',
     age: 30
@@ -92,6 +94,7 @@ const person  = {
 //can't do (assign a new array)->
  numbers = [1,2,3,4,5,6,7];
 0: Assignment to const
+```
 ## Primitive Data Types vs. Reference Types
 JavaScript is a Dynamically Typed Language. 
 –	Types are associated with values not variables
@@ -99,32 +102,47 @@ JavaScript is a Dynamically Typed Language.
 –	We do not need to specify types
 –	There are supersets of JS and addons to allow static typing (TypeScript, Flow)
 
-PRIMITIVE  
-/**The data is stored directly in the location that the variable accesses;
- * it's stored on the stack - when you access a primitive type you access its actual value.
- *  */ 
+### PRIMITIVE  
+- The data is stored directly in the location that the variable accesses;
+- it's stored on the stack - when you access a primitive type you access its actual value.
 
-String
+
+#### String
+```JavaScript
 const name = 'John Doe';
 console.log(typeof name);  //string
-Number
+```
+#### Number
+```JavaScript
 const age = 45;
-Boolean
+```
+#### Boolean
+```JavaScript
 const hasKids = true;
-Null
+```
+#### Null
+```JavaScript
 const car = null;
-Undefined
+```
+#### Undefined
+```JavaScript
 let test;
-Symbol
+```
+#### Symbol
+```JavaScript
 const sym = Symbol();
+```
 
-REFERENCE TYPES – Objects
+### REFERENCE TYPES – Objects
 
- * Accessed by reference
- * Data is stored on the heap - a pointer to locate in memory
-Array
+- Accessed by reference
+- Data is stored on the heap - a pointer to locate in memory
+#### Array
+```JavaScript
 const hobbies = ['movies', 'music'];
-Object literal
+```
+#### Object literal
+```JavaScript
 const address = {
   city: 'Boston',
   state: 'MA'
@@ -132,7 +150,7 @@ const address = {
 const today = new Date();
 console.log(today);  Sat Jul 13 2019 00:46:51 GMT-0400 (Eastern Daylight Time)
 console.log(typeof today);  object
-
+```
 Type Conversion
 When you are taking input from a form, that will be string by default; for calculation you need to parse it to a number.
 
