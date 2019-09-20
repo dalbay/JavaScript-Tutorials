@@ -106,38 +106,32 @@ JavaScript is a Dynamically Typed Language.
 – We do not need to specify types
 – There are supersets of JS and addons to allow static typing (TypeScript, Flow)
 
-### PRIMITIVE  
+### Primitive Types:
 - The data is stored directly in the location that the variable accesses;
 - it's stored on the stack - when you access a primitive type you access its actual value.
 
 ```JavaScript
-**// String**
-
+// String:
 const name = 'John Doe';
 console.log(typeof name);  //string
-```
-#### Number
-```JavaScript
+
+// Number:
 const age = 45;
-```
-#### Boolean
-```JavaScript
+
+// Boolean:
 const hasKids = true;
-```
-#### Null
-```JavaScript
+
+// Null:
 const car = null;
-```
-#### Undefined
-```JavaScript
+
+// Undefined:
 let test;
-```
-#### Symbol
-```JavaScript
+
+// Symbol:
 const sym = Symbol();
 ```
 
-### REFERENCE TYPES – Objects
+### Reference Types – Objects
 
 - Accessed by reference
 - Data is stored on the heap - a pointer to locate in memory
@@ -165,52 +159,52 @@ let val;
 ### Number to string
 ```JavaScript
 val = String(555);
-val = String(4+4);  // this will override val
-// Output
-console.log(val);   8
-console.log(typeof val);    string 
-console.log(val.length);    1
+val = String(4+4);        // this will override val
+
+console.log(val);         //   8
+console.log(typeof val);  //   string 
+console.log(val.length);  //   1
 ```
 ### Bool to String
 ```JavaScript
 val = String(true);
-// Output
-console.log(val);    true
-console.log(typeof val);    string
-console.log(val.length);    4
+
+console.log(val);         //  true
+console.log(typeof val);  //  string
+console.log(val.length);  //  4
 ```
 ### Date to String
 ```JavaScript
 val = String(new Date());
-// Output
-console.log(val);    Sun Jul 14 2019 14:21:22 GMT-0400 (Eastern Daylight Time)
-console.log(typeof val);   string
-console.log(val.length);    57
+
+console.log(val);        // Sun Jul 14 2019 14:21:22 GMT-0400 (Eastern Daylight Time)
+console.log(typeof val); // string
+console.log(val.length); // 57
 ```
 ### Array to String
 ```JavaScript
 val = String([1,2,3,4]);
-// Output
-console.log(val);   1,2,3,4
-console.log(typeof val);    string
-console.log(val.length);    7
 
-In addition to the String() function, you can also use the toString() method..
+console.log(val);         // 1,2,3,4
+console.log(typeof val);  // string
+console.log(val.length);  // 7
+
+//In addition to the String() function, you can also use the toString() method..
 val = (5).toString();
 val = (true).toString();
 ```
 ### String to number
 ```JavaScript
 val = Number('5');
-Output
-console.log(val);  5
-console.log(typeof val);    number
+
+console.log(val);        // 5
+console.log(typeof val); // number
 ```
 ### toFixed() - allows us to specify decimals.
 ```JavaScript
-console.log(val.toFixed(2));   5.00
+console.log(val.toFixed(2)); // 5.00
 
-In addition to the Number() function, you can also use the parseInt() method..
+//In addition to the Number() function, you can also use the parseInt() method..
 val = parseInt('5');
 val = parseFloat('105.50');  -- for decimals
 ```
@@ -221,11 +215,11 @@ const num1 = 100;
 const num2 = 50;
 let val;
 
-Simple math with numbers
+// Simple math with numbers
 val = num1 + num2;
 val = num1 * num2;
 
-Math Object
+// Math Object
 val = Math.PI;
 val = Math.E;
 val = Math.round(2.4);
@@ -238,7 +232,7 @@ val = Math.min(2,33,4,1,55,6,3,-2);
 val = Math.max(2,33,4,1,55,6,3,-2);
 val = Math.random();   this will give us a random decimal.
 
-val = Math.floor(Math.random() * 20 + 1);   this will give you a random whole number; 20 is the max number that we want
+val = Math.floor(Math.random() * 20 + 1);  // this will give you a random whole number; 20 is the max number that we want
 
 console.log(val);
 ```
@@ -255,63 +249,49 @@ const tags = 'web design,web development,programming';
 
 let val;
 val = firstName + lastName;
-```
-### Concatenation
-```JavaScript
+
+// CONCATENATION
 val = firstName + ' ' + lastName;
-```
-### Append
-```JavaScript
+
+// APPEND
 val = 'Brad ';
 val += 'Traversy';
-
 val = 'Hello, my name is ' + firstName + ' and I am ' + age;
-```
-### Escaping
-```JavaScript
+
+// ESCAPING
 val =  'That\'s awesome, I can\'t wait';
-```
-### Length
-```JavaScript
+
+// LENGTH
 val = firstName.length;
-```
-### concat()
-```JavaScript
+
+// CONCAT()
 val = firstName.concat(' ', lastName);
-```
-### Change case
-```JavaScript
+
+// CHANGE CASE
 val = firstName.toUpperCase();
 val = firstName.toLowerCase();
 
-val = firstName[2];
-```
-### indexOf()
-```JavaScript
+// INDEXOF()
 val = firstName.indexOf('l');
 val = firstName.lastIndexOf('l');
-```
-### charAt()
-```JavaScript
+
+// CHARAT()
 val = firstName.charAt('2');
-```
-### Get last char
-```JavaScript
+
+// GET LAST CHAR
 val = firstName.charAt(firstName.length - 1);
-```
-### subString()
-```JavaScript
+
+// SUBSTRING()
 val = firstName.substring(0, 4);
-```
-### slice()
-```JavaScript
+
+// SLICE()
 val = firstName.slice(0,4);
 val = firstName.slice(-3);
-```
-### split()
-```JavaScript
-val = str.split(' ');   This will give us an array
-				[object Array]: ["Hello", "there", "my", "name", "is", "Brad"]
+
+// SPLIT()
+val = str.split(' '); 
+/* This will give us an array
+[object Array]: ["Hello", "there", "my", "name", "is", "Brad"]
 0: "Hello"
 1: "there"
 2: "my"
@@ -319,24 +299,23 @@ val = str.split(' ');   This will give us an array
 4: "is"
 5: "Brad"
 length: 6
-
+*/
 val = tags.split(',');
-				[object Array]: ["web design", "web development", "programming"]
+/*
+[object Array]: ["web design", "web development", "programming"]
 0: "web design"
 1: "web development"
 2: "programming"
 length: 3
-```
-### replace()
-```JavaScript
+*/
+
+// REPLACE()
 val = str.replace('Brad', 'Jack');
-```
-### includes()
-```JavaScript
+
+// INCLUDES()
 val = str.includes('foo');
 
 console.log(val);
-
 ```
 ## Template Literals
 
@@ -378,7 +357,7 @@ html = `
 `;
 
 document.body.innerHTML = html;
-```
+/*
 Output: 
 •	Name: John
 •	Age: 31
@@ -387,35 +366,33 @@ Output:
 •	4
 •	hello
 •	Over 30
+*/
+```
 ## Arrays & Array Methods
-### Create some arrays
 ```JavaScript
+// CREATE ARRAY:
+
 const numbers = [43,56,33,23,44,36,5];
 const numbers2 = new Array(22,45,33,76,54);
 const fruit = ['Apple', 'Banana', 'Orange', 'Pear'];
 const mixed = [22, 'Hello', true, undefined, null, {a:1, b:1}, new Date()];
 
 let val;
-```
-### Get array length
-```JavaScript
+
+// GET LENGTH:
 val = numbers.length;
-```
-### Check if is array
-```JavaScript
+
+// CHECK IF IS ARRAY:
 val = Array.isArray(numbers);
-```
-### Get single value
-```JavaScript
+
+// GET SINGLE VALUE:
 val = numbers[3];
 val = numbers[0];
-```
-### Insert into array
-```JavaScript
+
+// INSERT INTO ARRAY:
 numbers[2] = 100;
-```
-### Find index of value
-```JavaScript
+
+// FIND INDEX OF VALUE:
 val = numbers.indexOf(36);
 ```
 ### MUTATING ARRAYS
