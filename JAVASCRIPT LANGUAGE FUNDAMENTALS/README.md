@@ -241,55 +241,55 @@ console.log(val);
 
 ## String Method & Concatenation
 ```JavaScript
-const firstName = 'William';
-const lastName = 'Johnson';
-const age = 36;
-const str = 'Hello there my name is Brad';
-const tags = 'web design,web development,programming';
+	const firstName = 'William';
+	const lastName = 'Johnson';
+	const age = 36;
+	const str = 'Hello there my name is Brad';
+	const tags = 'web design,web development,programming';
 
-let val;
-val = firstName + lastName;
+	let val;
+	val = firstName + lastName;
 
 // CONCATENATION
-val = firstName + ' ' + lastName;
+	val = firstName + ' ' + lastName;
 
 // APPEND
-val = 'Brad ';
-val += 'Traversy';
-val = 'Hello, my name is ' + firstName + ' and I am ' + age;
+	val = 'Brad ';
+	val += 'Traversy';
+	val = 'Hello, my name is ' + firstName + ' and I am ' + age;
 
 // ESCAPING
-val =  'That\'s awesome, I can\'t wait';
+	val =  'That\'s awesome, I can\'t wait';
 
 // LENGTH
-val = firstName.length;
+	val = firstName.length;
 
 // CONCAT()
-val = firstName.concat(' ', lastName);
+	val = firstName.concat(' ', lastName);
 
 // CHANGE CASE
-val = firstName.toUpperCase();
-val = firstName.toLowerCase();
+	val = firstName.toUpperCase();
+	val = firstName.toLowerCase();
 
 // INDEXOF()
-val = firstName.indexOf('l');
-val = firstName.lastIndexOf('l');
+	val = firstName.indexOf('l');
+	val = firstName.lastIndexOf('l');
 
 // CHARAT()
-val = firstName.charAt('2');
+	val = firstName.charAt('2');
 
 // GET LAST CHAR
-val = firstName.charAt(firstName.length - 1);
+	val = firstName.charAt(firstName.length - 1);
 
 // SUBSTRING()
-val = firstName.substring(0, 4);
+	val = firstName.substring(0, 4);
 
 // SLICE()
-val = firstName.slice(0,4);
-val = firstName.slice(-3);
+	val = firstName.slice(0,4);
+	val = firstName.slice(-3);
 
 // SPLIT()
-val = str.split(' '); 
+	val = str.split(' '); 
 /* This will give us an array
 [object Array]: ["Hello", "there", "my", "name", "is", "Brad"]
 0: "Hello"
@@ -310,12 +310,12 @@ length: 3
 */
 
 // REPLACE()
-val = str.replace('Brad', 'Jack');
+	val = str.replace('Brad', 'Jack');
 
 // INCLUDES()
-val = str.includes('foo');
+	val = str.includes('foo');
 
-console.log(val);
+	console.log(val);
 ```
 ## Template Literals
 
@@ -370,29 +370,29 @@ Output:
 ```
 ## Arrays & Array Methods
 ```JavaScript
-	// CREATE ARRAY:
-const numbers = [43,56,33,23,44,36,5];
-const numbers2 = new Array(22,45,33,76,54);
-const fruit = ['Apple', 'Banana', 'Orange', 'Pear'];
-const mixed = [22, 'Hello', true, undefined, null, {a:1, b:1}, new Date()];
+// CREATE ARRAY:
+	const numbers = [43,56,33,23,44,36,5];
+	const numbers2 = new Array(22,45,33,76,54);
+	const fruit = ['Apple', 'Banana', 'Orange', 'Pear'];
+	const mixed = [22, 'Hello', true, undefined, null, {a:1, b:1}, new Date()];
 
-let val;
+	let val;
 
-	// GET LENGTH:
-val = numbers.length;
+// GET LENGTH:
+	val = numbers.length;
 
-	// CHECK IF IS ARRAY:
-val = Array.isArray(numbers);
+// CHECK IF IS ARRAY:
+	val = Array.isArray(numbers);
 
-	// GET SINGLE VALUE:
-val = numbers[3];
-val = numbers[0];
+// GET SINGLE VALUE:
+	val = numbers[3];
+	val = numbers[0];
 
-	// INSERT INTO ARRAY:
-numbers[2] = 100;
+// INSERT INTO ARRAY:
+	numbers[2] = 100;
 
-	// FIND INDEX OF VALUE:
-val = numbers.indexOf(36);
+// FIND INDEX OF VALUE:
+	val = numbers.indexOf(36);
 ```
 ### MUTATING ARRAYS
 #### Add on to end
