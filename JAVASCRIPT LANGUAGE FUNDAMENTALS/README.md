@@ -1,23 +1,25 @@
 # JAVASCRIPT LANGUAGE FUNDAMENTALS
 
 ## Create a Simple HTML structure: 
-– VS-Code includes emit by default which allows us to use shortcuts 
-- *! tab*  ->  for basic HTML structure.
-– Open file with Life Server Extension -> right click the file ‘open with life server’
-– *Ctrl + S* to save the page ->  updates page automatically
-– *F12* -> Open up console in browser 
+– VS-Code allows us to use shortcuts 
+- ! + tab  ->  for a basic HTML structure
+– Open file with Life Server Extension 
+- Ctrl + S to save the page ->  updates page automatically
+– F12 -> Open up console in browser 
  
-## Log to the Console - from your JavaScript file.
+## Log to the Console - for Debugging code
 ### Log string to console
 ```JavaScript
 console.log('Hello World'); 
-```
-Hello World
 
+// OUTPUT:
+// Hello World
+```
 ### Log arrays to console
 ```JavaScript
 console.log([1,2,3,4]);
 /*
+OUTPUT:
  [object Array]: [1, 2, 3, 4]
 0: 1
 1: 2
@@ -27,20 +29,22 @@ console.log([1,2,3,4]);
 length: 4
 */
 ```
-### Log objects - this is an object literal
+### Log objects - (object literal)
 ```JavaScript
 console.log({a:1, b:2});
-```
+/*
+OUTPUT:
 [object Object]: {a: 1, b: 2}
 a: 1
 b: 2
 __proto__: Object
-
-–	Print out the object on the console as a table -> ```console.table({a:1, b:2});```
-–	Pring out as an error; this will print out in red ->``` console.error('This is an error');```
-–	Print out a warning   ->```   console.warn('this is a warning');```
-–	Clear the console   ->```   console.clear();```
-–	Display how long something takes in your script to process ->
+*/
+```
+– Print out the object on the console as a table -> ```console.table({a:1, b:2});```
+– Pring out as an error; this will print out in red ->``` console.error('This is an error');```
+– Print out a warning   ->```   console.warn('this is a warning');```
+– Clear the console   ->```   console.clear();```
+– Display how long something takes in your script to process ->
  ```JavaScript 
  console.time('Some text');
    // script here ... 
@@ -49,7 +53,7 @@ console.time('Some text');
 
 
 ## Variables and Declaration
-### var, let, const
+### VAR
 ```JavaScript
 var name = 'John Doe';
 console.log(name);
@@ -57,12 +61,8 @@ name = 'Steve Smith';
 console.log(name);
 ```
 
-### Init var
-```JavaScript
-var greeting;
-console.log(greeting);  -> undefined
-```
-*	To comment everything out  Highlight everything and Crtl + / *
+
+*To comment everything out -> Highlight out and Crtl + /*
 ### LET
 - is identical when it comes to global scope
 - has advantages when it comes to block level scoping
@@ -86,29 +86,33 @@ const person  = {
  person.name = 'Sarah';
  person.age = 31;
  console.log(person);
-[object Object]: {age: 31, name: "Sarah"}
+ // OUTPUT:
+ // [object Object]: {age: 31, name: "Sarah"}
+ 
  const numbers = [1,2,3,4];
  numbers.push(5);
  console.log(numbers);
-[object Array]: [1, 2, 3, 4, 5]
-//can't do (assign a new array)->
+ // OUTPUT:
+ // [object Array]: [1, 2, 3, 4, 5]
+ // can't do (need to assign a new array)->
  numbers = [1,2,3,4,5,6,7];
-0: Assignment to const
+ // OUTPUT:
+ // 0: Assignment to const
 ```
 ## Primitive Data Types vs. Reference Types
 JavaScript is a Dynamically Typed Language. 
-–	Types are associated with values not variables
-–	The same variable can hold multiple types
-–	We do not need to specify types
-–	There are supersets of JS and addons to allow static typing (TypeScript, Flow)
+– Types are associated with values not variables
+– The same variable can hold multiple types
+– We do not need to specify types
+– There are supersets of JS and addons to allow static typing (TypeScript, Flow)
 
 ### PRIMITIVE  
 - The data is stored directly in the location that the variable accesses;
 - it's stored on the stack - when you access a primitive type you access its actual value.
 
-
-#### String
 ```JavaScript
+**// String**
+
 const name = 'John Doe';
 console.log(typeof name);  //string
 ```
