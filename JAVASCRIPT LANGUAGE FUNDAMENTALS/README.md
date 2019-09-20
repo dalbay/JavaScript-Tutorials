@@ -1,24 +1,23 @@
 # JAVASCRIPT LANGUAGE FUNDAMENTALS
 
-## Create a Simple HTML structure – 
-–	VS-Code includes emit by default which allows us to use shortcuts 
-! tab    for basic HTML structure.
-–	Open file with Life Server  right click ‘open with life server’
-–	Run page with Life Server  Ctrl + S to save the page and it will update automatically
-–	Open up console in browser  F12
-–	You can write all the code inside the console, change and manipulate the document
-–	You can also print output to console 
+## Create a Simple HTML structure: 
+– VS-Code includes emit by default which allows us to use shortcuts 
+- *! tab*  ->  for basic HTML structure.
+– Open file with Life Server Extension -> right click the file ‘open with life server’
+– *Ctrl + S* to save the page ->  updates page automatically
+– *F12* -> Open up console in browser 
+ 
 ## Log to the Console - from your JavaScript file.
-### Log to console - string
+### Log string to console
 ```JavaScript
-console.log('Hello World');  this will print out to the console
+console.log('Hello World'); 
 ```
 Hello World
 
-### Log arrays to the console:
+### Log arrays to console
 ```JavaScript
 console.log([1,2,3,4]);
-```
+/*
  [object Array]: [1, 2, 3, 4]
 0: 1
 1: 2
@@ -26,7 +25,8 @@ console.log([1,2,3,4]);
 3: 4
 
 length: 4
-
+*/
+```
 ### Log objects - this is an object literal
 ```JavaScript
 console.log({a:1, b:2});
@@ -875,20 +875,24 @@ if(confirm('Are you sure')){
 
 
 **Outter height and width**
+```JavaScript
 let val;
 val = window.outerHeight; // returns the window screen height.
 val = window.outerWidth;  // returns the window screen width.
-
+```
 **Inner height and width**
+```JavaScript
 val = window.innerHeight;  // if you have scroll bars 
 val = window.innerWidth;   // if you have scroll bars 
-
+```
 **Scroll points**
+```JavaScript
 val = window.scrollY;  // to figure out where you are in terms of scrolling 
 val = window.scrollX;
-- For instance, if you put a div in the body with a margin-top: 1000px; will give you a scroll bar
-- You could use this when you want to show an animation when you scroll down to a certain point 
 
+// For instance, if you put a div in the body with a margin-top: 1000px; will give you a scroll bar
+// You could use this when you want to show an animation when you scroll down to a certain point 
+```
 
 
 #### Location Object
@@ -918,25 +922,24 @@ val = window.location.port;
 val = window.location.href;
 val = window.location.search;  // use it with queryStrings.
 ```
-- For instance if you type in *?id=1* than this is what is will show
+- For instance if you type in *?id=1*, the url will show 
 http://127.0.0.1:5500/index.html?id=1
-	?id=1
-We can extract the query string values from the URL and put them into our script.
-You can have links that people click on.
-Or get forms that people submit that will give you these parameters
+	
+We can extract the query string values from the URL and use it in our script; or 
+create links that people click on; or get forms that people submit with these parameters.
 
 **Redirect** - ```window.location.href = 'http://google.com';```
 
 **Reload** - ```window.location.reload();```
 
-#### History Object 
+#### History Object:
 - will get your browsing history
 ```JavaScript
 window.history.go(-2);
 val = window.history.length;
 ```
 
-#### Navigator Object 
+#### Navigator Object:
 - has to do with the browser itself
 ```JavaScript
 val = window.navigator;
@@ -1016,9 +1019,9 @@ console.log('Global Scope : ', a, b, c);
 // Function scope : 4 5 6
 // Global Scope : 1 2 3
 ```
-- a, b, and c are inside the functions - in a different scope, so they become different variables.
-- Var is a functions scope declaration – meaning, you can have a different variable with the same name inside of a function then on the outside.
-- A block level scope is anything that is wrapped inside {}, if statement, …
+- the second a, b, and c declarations are inside a functions - meaning they are in a different scope, so they become different variables.
+- **Var** is a functions scope declaration – meaning, you can have a different variable with the same name inside a function.
+- A **block level scope** is anything that is wrapped inside a{}, an if statement, …
 
 #### Example 3.
 ```JavaScript
@@ -1039,9 +1042,9 @@ console.log('Global Scope: ', a, b, c);
 //Output:
 //If Scope: 4 5 6
 //Global Scope: 4 2 3   var has changed in the global scope after changing the 
-```
-*let and const have not changed and are still the same in the global scope.*
 
+//*let and const have not changed and are still the same in the global scope.*
+```
 ##### Example 4.
 ```JavaScript
 // Global Scope
