@@ -297,3 +297,76 @@ Node Type by number:
 9 - Document itself
 10 - Doctype
 
+### Get children element nodes
+- Will only count the elements
+- Returns an HtmlCollection
+val = list.children;
+```html
+/* OUTPUT:
+	<HtmlCollection length="5">
+		<li class="collection-item">...</li>
+		<li class="collection-item">...</li>
+		<li class="collection-item">...</li>
+		<li class="collection-item">...</li>
+		<li class="collection-item">...</li>
+	</HtmlCollection>
+*/
+```
+#### Get an Element from the Children
+```JavaScript
+val = list.children[1];
+list.children[1].textContent = 'Hello';
+```
+#### Children of children
+```JavaScript
+val = list.children[3].children;
+list.children[3].children[0].id = 'test-link';
+```
+#### First child
+```JavaScript
+val = list.firstChild;  // returns first node, whether it’s an element/text,...
+```
+#### First Element Child
+```JavaScript
+val = list.firstElementChild;  // returns first actual element.
+```
+#### Last child
+```JavaScript
+val = list.lastChild;  // returns last node, whether it’s an element/text,...
+```
+#### Last Element child
+```JavaScript
+val = list.lastElementChild; // returns last actual element.
+```
+#### Count child elements
+```JavaScript
+val = list.childElementCount;
+```
+### Get parent node
+```JavaScript
+val = listItem.parentNode;
+val = listItem.parentElement; // most cases it will be the same.
+```
+
+#### Parent of Parent
+```JavaScript
+val = listItem.parentElement.parentElement;
+```
+
+#### Get next sibling
+```JavaScript
+val = listItem.nextSibling; // returns next node, whether it’s an element/text 
+val = listItem.nextElementSibling;  // returns next actual element
+```
+#### Move to the other siblings
+```JavaScript
+val = listItem.nextElementSibling.nextElementSibling;
+```
+
+#### Get previous sibling
+```JavaScript
+val = listItem.previousSibling;  returns previous node; element/text
+val = listItem.previousElementSibling;   returns previouis actual element
+```
+
+
