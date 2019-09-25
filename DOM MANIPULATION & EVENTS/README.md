@@ -264,4 +264,36 @@ console.log(list);
 val = listItem;
 val = list;
 ```
+### Get child nodes
+- Will also count the text nodes 
+- Returns a nodeList
+val = list.childNodes;
+```JavaScript
+console.log(list);
+/* OUTPUT: 
+	<NodeList length="11">
+		EmptyTextNode
+		<li class="collection-item">...</li>
+		EmptyTextNode
+		<li class="collection-item">...</li>
+		EmptyTextNode
+		<li class="collection-item">...</li>
+		EmptyTextNode
+		<li class="collection-item">...</li>
+		EmptyTextNode
+		<li class="collection-item">...</li>
+		EmptyTextNode
+	</NodeList>
+*/
+val = list.childNodes[0];
+val = list.childNodes[0].nodeName;
+val = list.childNodes[3].nodeType; // nodeType will returns a number
+```
+Node Type by number:
+1 - Element
+2 - Attribute (deprecated)
+3 - Text node
+8 - Comment
+9 - Document itself
+10 - Doctype
 
