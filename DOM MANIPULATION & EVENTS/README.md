@@ -146,4 +146,19 @@ console.log(val);
 	app.js
 */
 ```
+## DOM Selectors for Single Elements
+### document.getElementById()
+```JavaScript
+
+	const taskTitle = document.getElementById('task-title');
+
+	// Change styling
+	 taskTitle.style.color = 'red';
+	 taskTitle.style.padding = '5px';
+
+	// Change content
+	taskTitle.textContent = 'Task List';
+	taskTitle.innerText = 'My Tasks';
+	taskTitle.innerHTML = '<span style="color:red">Task List</span>';
+```
 
