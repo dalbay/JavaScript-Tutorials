@@ -621,25 +621,25 @@ console.log(val);
 ```
 **JavaScript file:**
 ```JavaScript
-document.querySelector('.card-title').addEventListener('click', function(){
-    console.log('card title');
-  });
+	document.querySelector('.card-title').addEventListener('click', function(){
+		console.log('card title');
+	});
  // Now - Add an event listeners to the parents:
 
 //Add an event listener at its parent which is ‘card-content’:
-document.querySelector('.card-content').addEventListener('click', function(){
-  console.log('card content');
-});
+	document.querySelector('.card-content').addEventListener('click', function(){
+		console.log('card content');
+	});
 
 //Add an event listener at ‘card-content’s parent which is ‘card’:
-document.querySelector('.card').addEventListener('click', function(){
-  console.log('card');
-});
+	document.querySelector('.card').addEventListener('click', function(){
+		console.log('card');
+	});
 
 //Add an event listener at ‘card’s parent which is ‘col’:
-document.querySelector('.col').addEventListener('click', function(){
-  console.log('col');
-});
+	document.querySelector('.col').addEventListener('click', function(){
+		console.log('col');
+	});
 Now when you click on the Task List title, the events will bubble up and all the event will fire off because of event bubbling. 
 ```
  ![project dom](./images/domImg3.png)
@@ -655,38 +655,38 @@ In our project we want to target all the links (a tags) inside the li tags which
 So, we are going put the event on the ul tag (collection) which is the parent, and then we are going to target the link that we want.  
 Since all the links have the same class name of delete-item we can use event delegation to target the a tag that we want. 
 ```HTML
-            <ul class="collection">
-              <li class="collection-item">
-                List Item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove" id="1">1</i>
-                </a>
-              </li> 
-              <li class="collection-item">
-                List Item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li> 
-              <li class="collection-item">
-                List Item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-              <li class="collection-item">
-                List Item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-              <li class="collection-item">
-                List Item
-                <a href="#" class="delete-item secondary-content">
-                  <i class="fa fa-remove"></i>
-                </a>
-              </li>
-            </ul>
+	<ul class="collection">
+	  <li class="collection-item">
+		List Item
+		<a href="#" class="delete-item secondary-content">
+		  <i class="fa fa-remove" id="1">1</i>
+		</a>
+	  </li> 
+	  <li class="collection-item">
+		List Item
+		<a href="#" class="delete-item secondary-content">
+		  <i class="fa fa-remove"></i>
+		</a>
+	  </li> 
+	  <li class="collection-item">
+		List Item
+		<a href="#" class="delete-item secondary-content">
+		  <i class="fa fa-remove"></i>
+		</a>
+	  </li>
+	  <li class="collection-item">
+		List Item
+		<a href="#" class="delete-item secondary-content">
+		  <i class="fa fa-remove"></i>
+		</a>
+	  </li>
+	  <li class="collection-item">
+		List Item
+		<a href="#" class="delete-item secondary-content">
+		  <i class="fa fa-remove"></i>
+		</a>
+	  </li>
+	</ul>
 ```
   ![project dom](./images/domImg4.png)  
 
@@ -694,18 +694,18 @@ We could have added the event listener to the ul tag.
 For demo purpose, we added the event listener to the body tag; and as a result, if we click anywhere inside the body the event will be fired up.  
 To get the a tag, we need to check inside the deleteItem function the target element that fires the event. 
 ```JavaScript
-		document.body.addEventListener('click', deleteItem);
+	document.body.addEventListener('click', deleteItem);
 
-		function deleteItem(e) {
-			if (e.target.parentElement.className === 'delete-item secondary-content') {
-				console.log('delete item');
-			}
-			// a better way would be to use .classList just in case we want to add another class in the future to one of the a tags.
-			if (e.target.parentElement.classList.contains('delete-item')) {
-				console.log('delete item');
-				e.target.parentElement.parentElement.remove(); //this will remove the li tag 
-			}
+	function deleteItem(e) {
+		if (e.target.parentElement.className === 'delete-item secondary-content') {
+			console.log('delete item');
 		}
+		// a better way would be to use .classList just in case we want to add another class in the future to one of the a tags.
+		if (e.target.parentElement.classList.contains('delete-item')) {
+			console.log('delete item');
+			e.target.parentElement.parentElement.remove(); //this will remove the li tag 
+		}
+	}
 ```
 
 ***When to use Event Delegation:***
@@ -729,67 +729,67 @@ The Local storage API is part of the browser. Look at the window object in the c
 
 This is how you set data in your browser:  
 ```JavaScript
-		localStorage.setItem('name', 'John');
-		localStorage.setItem('age', '30');
+	localStorage.setItem('name', 'John');
+	localStorage.setItem('age', '30');
 ```
 Look in your browser under Storage -> Local Storage -> we will see the key-value set in our browser:
    ![project dom](./images/domImg6.png)  
 #### Set Session Storage Item
 ```JavaScript
-		sessionStorage.setItem('name', 'Beth');
+	sessionStorage.setItem('name', 'Beth');
 ```
 ![project dom](./images/domImg7.png)
 
 - Remove from Storage
 ```JavaScript
-		localStorage.removeItem('name');
+	localStorage.removeItem('name');
 ```
 - Get from Storage
 ```JavaScript
-		const name = localStorage.getItem('name');
-		const age = localStorage.getItem('age');
+	const name = localStorage.getItem('name');
+	const age = localStorage.getItem('age');
 ```
 - Clear Local Storage
 ```JavaScript
-		localStorage.clear();
+	localStorage.clear();
 ```
 #### Example:  
 – we will have the form put data to our local storage:
 ![project dom](./images/domImg8.png)  
 ```JavaScript
-		document.querySelector('form').addEventListener('submit',function(e){
-		   let task = document.getElementById('task').value;
-		   localStorage.setItem('task', task);
+	document.querySelector('form').addEventListener('submit',function(e){
+	   let task = document.getElementById('task').value;
+	   localStorage.setItem('task', task);
 
-		   e.preventDefault();
-		 });
+	   e.preventDefault();
+	 });
 ```
 ![project dom](./images/domImg9.png)  
 
 - Right now, we can only store one task at a time; the new task will replaced the previous one. We could fix this by creating an array of tasks and store them as a string.
 ```JavaScript
-		document.querySelector('form').addEventListener('submit', function (e) {
-			const task = document.getElementById('task').value;
-			let tasks;
-			if (localStorage.getItem('tasks') === null) {
-				tasks = []; // sets an empty array if no tasks
-			} else {
-				tasks = JSON.parse(localStorage.getItem('tasks'));
-			}
-			tasks.push(task);
-			localStorage.setItem('tasks', JSON.stringify(tasks));
+	document.querySelector('form').addEventListener('submit', function (e) {
+		const task = document.getElementById('task').value;
+		let tasks;
+		if (localStorage.getItem('tasks') === null) {
+			tasks = []; // sets an empty array if no tasks
+		} else {
+			tasks = JSON.parse(localStorage.getItem('tasks'));
+		}
+		tasks.push(task);
+		localStorage.setItem('tasks', JSON.stringify(tasks));
 
-			e.preventDefault();
-		});
+		e.preventDefault();
+	});
 ```
 - Now we can safe multiple tasks in local storage in a string array.
  ![project dom](./images/domImg10.png) 
 
 - To pull out the tasks from the array:
 ```JavaScript
-		const tasks = JSON.parse(localStorage.getItem('tasks'));
+	const tasks = JSON.parse(localStorage.getItem('tasks'));
 
-		tasks.forEach(function(task){
-		  console.log(task);
-		});
+	tasks.forEach(function(task){
+	  console.log(task);
+	});
 ```
