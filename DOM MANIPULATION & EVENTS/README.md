@@ -81,4 +81,69 @@
 </html>
 ```
 ![project dom](./images/domImg.png)
+```JavaScript
+let val;
+
+val = document.all[1];
+console.log(val);
+/*
+	OUTPUT:
+	<head>...</head>
+*/
+
+val = document.URL;
+console.log(val);
+/*
+	OUTPUT:
+	http://127.0.0.1:5500/index.html
+*/
+
+// val = document.forms[0].id;
+val = document.forms;
+console.log(val);
+/*
+	OUTPUT:
+	HTMLCollection [form#task-form, task-form: form#task-form]
+	0: form#task-form
+	length: 1
+	task-form: form#task-form
+	__proto__: HTMLCollection
+*/
+
+val = document.links[0].className;
+console.log(val);
+/*
+	OUTPUT:
+	delete-item secondary-content
+*/
+
+val = document.scripts;
+console.log(val);
+/*
+	OUTPUT:
+	HTMLCollection(3) [script, script, script]
+	0: script
+	1: script
+	2: script
+	3: script
+	length: 4
+	__proto__: HTMLCollection
+*/
+
+// you can turn HTML collections into arrays to use forEach looping
+let scripts = document.scripts;
+let scriptsArr = Array.from(scripts);
+
+scriptsArr.forEach(function(script) {
+  console.log(script.getAttribute('src'));
+});
+
+console.log(val);
+/*
+	OUTPUT:
+	https://code.jquery.com/jquery-3.2.1.js
+	https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js
+	app.js
+*/
+```
 
