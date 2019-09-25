@@ -611,7 +611,7 @@ console.log(val);
 - Is the bubbling of the event through the DOM. 
 - When an event happens on an element in the DOM it will bubble up through its parents.
 
-- Example - of how Event Bubbling works:  
+- Example - of how Event Bubbling works: <br/> 
 **HTML file:**
 ```HTML
       <div class="col s12">
@@ -651,8 +651,9 @@ Now when you click on the Task List title, the events will bubble up and all the
 
 - Example:
 
-In our project we want to target all the links (a tags) inside the li tags which are inside an ul element. 
-So, we are going put the event on the ul tag (collection) which is the parent, and then we are going to target the link that we want. Since all the links have the same class name of delete-item we can use event delegation to target the a tag that we want. 
+In our project we want to target all the links (a tags) inside the li tags which are inside an ul element.   
+So, we are going put the event on the ul tag (collection) which is the parent, and then we are going to target the link that we want.  
+Since all the links have the same class name of delete-item we can use event delegation to target the a tag that we want. 
 ```HTML
             <ul class="collection">
               <li class="collection-item">
@@ -689,20 +690,21 @@ So, we are going put the event on the ul tag (collection) which is the parent, a
 ```
   ![project dom](./images/domImg4.png)  
 
-We could have added the event listener to the ul tag.
-For demo purpose, we added the event listener to the body tag; and as a result, if we click anywhere inside the body the event will be fired up. To get the a tag, we need to check inside the deleteItem function the target element that fires the event. 
+We could have added the event listener to the ul tag.  
+For demo purpose, we added the event listener to the body tag; and as a result, if we click anywhere inside the body the event will be fired up.  
+To get the a tag, we need to check inside the deleteItem function the target element that fires the event. 
 ```JavaScript
 	document.body.addEventListener('click', deleteItem);
 
-	function deleteItem(e){
-	  if(e.target.parentElement.className === 'delete-item secondary-content'){
-		console.log('delete item');
-	  }
-	  // a better way would be to use .classList just in case we want to add another class in the future to one of the a tags.
-	  if(e.target.parentElement.classList.contains('delete-item')){
-		console.log('delete item');
-		e.target.parentElement.parentElement.remove();  //this will remove the li tag 
-	  }
+	function deleteItem(e) {
+	    if (e.target.parentElement.className === 'delete-item secondary-content') {
+	        console.log('delete item');
+	    }
+	    // a better way would be to use .classList just in case we want to add another class in the future to one of the a tags.
+	    if (e.target.parentElement.classList.contains('delete-item')) {
+	        console.log('delete item');
+	        e.target.parentElement.parentElement.remove(); //this will remove the li tag 
+	    }
 	}
 ```
 
