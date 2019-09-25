@@ -611,7 +611,7 @@ console.log(val);
 - Is the bubbling of the event through the DOM. 
 - When an event happens on an element in the DOM it will bubble up through its parents.
 
-- Example - of how Event Bubbling works:
+- Example - of how Event Bubbling works:  
 **HTML file:**
 ```HTML
       <div class="col s12">
