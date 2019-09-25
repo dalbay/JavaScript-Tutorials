@@ -415,27 +415,27 @@ console.log(li);
 
 *Example – replacing h5 with an h2 element;*
 
-- Get the Element
+1. Get the Element
 ```JavaScript
 const newHeading = document.createElement('h2');
 ```
-- Add an Id
+2. Add an Id
 ```JavaScript
 newHeading.id = 'task-title';
 ```
-- Create New Text Node
+3. Create New Text Node
 ```JavaScript
 newHeading.appendChild(document.createTextNode('Task List'));
 ```
-- Get the Old Element
+4. Get the Old Element
 ```JavaScript
 const oldHeading = document.getElementById('task-title');
 ```
-- Get the Parent
+5. Get the Parent
 ```JavaScript
 const cardAction = document.querySelector('.card-action');
 ```
-- Replace the Nodes
+6. Replace the Nodes
 ```JavaScript
 cardAction.replaceChild(newHeading, oldHeading);
 ```
@@ -464,11 +464,11 @@ let val;
 ```
 - Classes:
 ```JavaScript
-val = link.className;   returns a string of the class names.
-val = link.classList;   returns a DOMTokenList, which is set up like an array
+val = link.className;  // returns a string of the class names.
+val = link.classList;  // returns a DOMTokenList, which is set up like an array
 val = link.classList[0];
-link.classList.add('test');   to add a class 
-link.classList.remove('test');   to remove a class
+link.classList.add('test');  // to add a class 
+link.classList.remove('test'); // to remove a class
 val = link;  
 ```
 - Attributes:
@@ -605,3 +605,108 @@ console.log(val);
 	  e.preventDefault();
 	}
 ```
+### Event Bubbling & Delegation
+
+#### Event Bubbling
+- Is the bubbling of the event through the DOM. 
+- When an event happens on an element in the DOM it will bubble up through its parents.
+
+- Example - of how Event Bubbling works:
+**HTML file:**
+```HTML
+      <div class="col s12">
+        <div id="main" class="card">
+          <div class="card-content">
+            <span class="card-title">Task List</span>
+```
+**JavaScript file:**
+```JavaScript
+document.querySelector('.card-title').addEventListener('click', function(){
+    console.log('card title');
+  });
+ // Now - Add an event listeners to the parents:
+
+//Add an event listener at its parent which is ‘card-content’:
+document.querySelector('.card-content').addEventListener('click', function(){
+  console.log('card content');
+});
+
+//Add an event listener at ‘card-content’s parent which is ‘card’:
+document.querySelector('.card').addEventListener('click', function(){
+  console.log('card');
+});
+
+//Add an event listener at ‘card’s parent which is ‘col’:
+document.querySelector('.col').addEventListener('click', function(){
+  console.log('col');
+});
+Now when you click on the Task List title, the events will bubble up and all the event will fire off because of event bubbling. 
+```
+ ![project dom](./images/domImg3.png)
+
+
+#### Event Delegation
+-	Is almost the opposite of Event Bubbling.
+-	It’s where we put the listener on one of the parent elements and then we go down. 
+
+- Example:
+
+In our project we want to target all the links (a tags) inside the li tags which are inside an ul element. 
+So, we are going put the event on the ul tag (collection) which is the parent, and then we are going to target the link that we want. Since all the links have the same class name of delete-item we can use event delegation to target the a tag that we want. 
+```HTML
+            <ul class="collection">
+              <li class="collection-item">
+                List Item
+                <a href="#" class="delete-item secondary-content">
+                  <i class="fa fa-remove" id="1">1</i>
+                </a>
+              </li> 
+              <li class="collection-item">
+                List Item
+                <a href="#" class="delete-item secondary-content">
+                  <i class="fa fa-remove"></i>
+                </a>
+              </li> 
+              <li class="collection-item">
+                List Item
+                <a href="#" class="delete-item secondary-content">
+                  <i class="fa fa-remove"></i>
+                </a>
+              </li>
+              <li class="collection-item">
+                List Item
+                <a href="#" class="delete-item secondary-content">
+                  <i class="fa fa-remove"></i>
+                </a>
+              </li>
+              <li class="collection-item">
+                List Item
+                <a href="#" class="delete-item secondary-content">
+                  <i class="fa fa-remove"></i>
+                </a>
+              </li>
+            </ul>
+```
+  ![project dom](./images/domImg4.png)  
+
+We could have added the event listener to the ul tag.
+For demo purpose, we added the event listener to the body tag; and as a result, if we click anywhere inside the body the event will be fired up. To get the a tag, we need to check inside the deleteItem function the target element that fires the event. 
+```JavaScript
+	document.body.addEventListener('click', deleteItem);
+
+	function deleteItem(e){
+	  if(e.target.parentElement.className === 'delete-item secondary-content'){
+		console.log('delete item');
+	  }
+	  // a better way would be to use .classList just in case we want to add another class in the future to one of the a tags.
+	  if(e.target.parentElement.classList.contains('delete-item')){
+		console.log('delete item');
+		e.target.parentElement.parentElement.remove();  //this will remove the li tag 
+	  }
+	}
+```
+
+***When to use Event Delegation:***
+   - When we want to be able to select any tag within a containing parent.
+   - When we dynamically insert something into the DOM through JavaScript.
+
