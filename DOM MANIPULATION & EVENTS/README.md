@@ -290,12 +290,12 @@ val = list.childNodes[0].nodeName;
 val = list.childNodes[3].nodeType; // nodeType will returns a number
 ```
 Node Type by number:
-1 - Element
-2 - Attribute (deprecated)
-3 - Text node
-8 - Comment
-9 - Document itself
-10 - Doctype
+- 1 Element
+- 2 Attribute (deprecated)
+- 3 Text node
+- 8 Comment
+- 9 Document itself
+- 10 Doctype
 
 ### Get children element nodes
 - Will only count the elements
@@ -367,6 +367,121 @@ val = listItem.nextElementSibling.nextElementSibling;
 ```JavaScript
 val = listItem.previousSibling;  returns previous node; element/text
 val = listItem.previousElementSibling;   returns previouis actual element
+```
+
+### Creating Elements
+
+- Create element
+```JavaScript
+const li  = document.createElement('li');
+```
+- Add class
+```JavaScript
+li.className = 'collection-item';
+```
+- Add id
+```JavaScript
+li.id = 'new-item';
+```
+- Add attribute
+```JavaScript
+li.setAttribute('title', 'New Item');
+```
+- Create text node and append
+```JavaScript
+li.appendChild(document.createTextNode('Hello World'));
+```
+- Create new link element
+```JavaScript
+const link = document.createElement('a');
+```
+- Add classes
+```JavaScript
+link.className = 'delete-item secondary-content';
+```
+- Add icon html
+```JavaScript
+link.innerHTML = '<i class="fa fa-remove"></i>';  materialize.min.js add-on
+Append link into li
+li.appendChild(link);
+```
+- Append li as child to ul
+```JavaScript
+document.querySelector('ul.collection').appendChild(li);
+
+console.log(li);
+```
+### Removing & Replacing Elements
+#### Replace Elements
+
+- Example – replacing h5 with an h2 element;
+
+- Get the Element
+```JavaScript
+const newHeading = document.createElement('h2');
+```
+- Add an Id
+```JavaScript
+newHeading.id = 'task-title';
+```
+- Create New Text Node
+```JavaScript
+newHeading.appendChild(document.createTextNode('Task List'));
+```
+- Get the Old Element
+```JavaScript
+const oldHeading = document.getElementById('task-title');
+```
+- Get the Parent
+```JavaScript
+const cardAction = document.querySelector('.card-action');
+```
+- Replace the Nodes
+```JavaScript
+cardAction.replaceChild(newHeading, oldHeading);
+```
+#### Remove Element
+
+- Get the Element
+```JavaScript
+const lis = document.querySelectorAll('li');
+const list = document.querySelector('ul');
+```
+- Remove list item
+```JavaScript
+lis[0].remove();
+```
+- Remove child element
+```JavaScript
+list.removeChild(lis[3]);   Same result as above
+```
+
+#### Classes & Attributes
+```JavaScript
+const firstLi = document.querySelector('li:first-child');
+const link = firstLi.children[0];  // we are calling the a tag.
+
+let val;
+```
+- Classes:
+```JavaScript
+val = link.className;   returns a string of the class names.
+val = link.classList;   returns a DOMTokenList, which is set up like an array
+val = link.classList[0];
+link.classList.add('test');   to add a class 
+link.classList.remove('test');   to remove a class
+val = link;  
+```
+- Attributes:
+```JavaScript
+val = link.getAttribute('href');
+val = link.setAttribute('href', 'http://google.com');
+link.setAttribute('title', 'Google');
+val = link.hasAttribute('title');
+link.removeAttribute('title');
+val = link;
+
+console.log(val);
 ```
 
 
