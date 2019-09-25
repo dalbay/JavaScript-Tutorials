@@ -149,7 +149,6 @@ console.log(val);
 ## DOM Selectors for Single Elements
 ### document.getElementById()
 ```JavaScript
-
 	const taskTitle = document.getElementById('task-title');
 
 	// Change styling
@@ -161,4 +160,16 @@ console.log(val);
 	taskTitle.innerText = 'My Tasks';
 	taskTitle.innerHTML = '<span style="color:red">Task List</span>';
 ```
+### document.querySelector()
+```JavaScript
+	// Change styling
+	document.querySelector('li').style.color = 'red';
+	document.querySelector('ul li').style.color = 'blue';
+	document.querySelector('li:last-child').style.color = 'red';
+	document.querySelector('li:nth-child(3)').style.color = 'yellow';
+	document.querySelector('li:nth-child(even)').style.background = '#f4f4f4';
+```
+## DOM Selectors for Multiple Elements
+### document.getElementsByClassName
+
 
