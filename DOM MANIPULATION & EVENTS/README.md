@@ -170,6 +170,7 @@
 	document.querySelector('li:nth-child(even)').style.background = '#f4f4f4';
 ```
 ## DOM Selectors for Multiple Elements
+
 ### document.getElementsByClassName()
 ```JavaScript
 	const items = document.getElementsByClassName('collection-item');
