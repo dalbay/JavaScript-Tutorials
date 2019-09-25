@@ -694,21 +694,102 @@ We could have added the event listener to the ul tag.
 For demo purpose, we added the event listener to the body tag; and as a result, if we click anywhere inside the body the event will be fired up.  
 To get the a tag, we need to check inside the deleteItem function the target element that fires the event. 
 ```JavaScript
-	document.body.addEventListener('click', deleteItem);
+		document.body.addEventListener('click', deleteItem);
 
-	function deleteItem(e) {
-	    if (e.target.parentElement.className === 'delete-item secondary-content') {
-	        console.log('delete item');
-	    }
-	    // a better way would be to use .classList just in case we want to add another class in the future to one of the a tags.
-	    if (e.target.parentElement.classList.contains('delete-item')) {
-	        console.log('delete item');
-	        e.target.parentElement.parentElement.remove(); //this will remove the li tag 
-	    }
-	}
+		function deleteItem(e) {
+			if (e.target.parentElement.className === 'delete-item secondary-content') {
+				console.log('delete item');
+			}
+			// a better way would be to use .classList just in case we want to add another class in the future to one of the a tags.
+			if (e.target.parentElement.classList.contains('delete-item')) {
+				console.log('delete item');
+				e.target.parentElement.parentElement.remove(); //this will remove the li tag 
+			}
+		}
 ```
 
 ***When to use Event Delegation:***
    - When we want to be able to select any tag within a containing parent.
    - When we dynamically insert something into the DOM through JavaScript.
 
+
+
+### Local and Session Storage
+
+The Local storage API is part of the browser. Look at the window object in the console and you will see all the methods you can use with the localStorage API.
+   ![project dom](./images/domImg5.png)
+
+***How to use localStorage API:***  
+- You can set key value pair.
+- What you set as a value, has to be a string
+- You can still save objects and arrays but you have to turn them into string first using a method called **JSON.stringify()** ; and when you pull it out to use it you want to parse it back you want to use a method called **JSON.parse()** .
+- The difference between locals storage and session storage is will stay until you manually clear it out in your settings or through your program, and session storage will go away once your browser is closed – session is closed. But the API is the same for both.
+
+#### Set Local Storage Item
+
+This is how you set data in your browser:  
+```JavaScript
+		localStorage.setItem('name', 'John');
+		localStorage.setItem('age', '30');
+```
+Look in your browser under Storage -> Local Storage -> we will see the key-value set in our browser:
+   ![project dom](./images/domImg6.png)  
+#### Set Session Storage Item
+```JavaScript
+		sessionStorage.setItem('name', 'Beth');
+```
+![project dom](./images/domImg7.png)
+
+- Remove from Storage
+```JavaScript
+		localStorage.removeItem('name');
+```
+- Get from Storage
+```JavaScript
+		const name = localStorage.getItem('name');
+		const age = localStorage.getItem('age');
+```
+- Clear Local Storage
+```JavaScript
+		localStorage.clear();
+```
+#### Example:  
+– we will have the form put data to our local storage:
+![project dom](./images/domImg8.png)  
+```JavaScript
+		document.querySelector('form').addEventListener('submit',function(e){
+		   let task = document.getElementById('task').value;
+		   localStorage.setItem('task', task);
+
+		   e.preventDefault();
+		 });
+```
+![project dom](./images/domImg9.png)  
+
+- Right now, we can only store one task at a time; the new task will replaced the previous one. We could fix this by creating an array of tasks and store them as a string.
+```JavaScript
+		document.querySelector('form').addEventListener('submit', function (e) {
+			const task = document.getElementById('task').value;
+			let tasks;
+			if (localStorage.getItem('tasks') === null) {
+				tasks = []; // sets an empty array if no tasks
+			} else {
+				tasks = JSON.parse(localStorage.getItem('tasks'));
+			}
+			tasks.push(task);
+			localStorage.setItem('tasks', JSON.stringify(tasks));
+
+			e.preventDefault();
+		});
+```
+- Now we can safe multiple tasks in local storage in a string array.
+ ![project dom](./images/domImg10.png) 
+
+- To pull out the tasks from the array:
+```JavaScript
+		const tasks = JSON.parse(localStorage.getItem('tasks'));
+
+		tasks.forEach(function(task){
+		  console.log(task);
+		});
+```
