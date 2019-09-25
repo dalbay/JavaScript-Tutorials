@@ -302,7 +302,7 @@ Node Type by number:
 - Returns an HtmlCollection
 val = list.children;
 ```html
-/* OUTPUT:
+ OUTPUT:
 	<HtmlCollection length="5">
 		<li class="collection-item">...</li>
 		<li class="collection-item">...</li>
@@ -310,35 +310,34 @@ val = list.children;
 		<li class="collection-item">...</li>
 		<li class="collection-item">...</li>
 	</HtmlCollection>
-*/
 ```
-#### Get an Element from the Children
+- Get an Element from the Children
 ```JavaScript
 val = list.children[1];
 list.children[1].textContent = 'Hello';
 ```
-#### Children of children
+- Children of children
 ```JavaScript
 val = list.children[3].children;
 list.children[3].children[0].id = 'test-link';
 ```
-#### First child
+- First child
 ```JavaScript
 val = list.firstChild;  // returns first node, whether it’s an element/text,...
 ```
-#### First Element Child
+- First Element Child
 ```JavaScript
 val = list.firstElementChild;  // returns first actual element.
 ```
-#### Last child
+- Last child
 ```JavaScript
 val = list.lastChild;  // returns last node, whether it’s an element/text,...
 ```
-#### Last Element child
+- Last Element child
 ```JavaScript
 val = list.lastElementChild; // returns last actual element.
 ```
-#### Count child elements
+- Count child elements
 ```JavaScript
 val = list.childElementCount;
 ```
@@ -348,22 +347,22 @@ val = listItem.parentNode;
 val = listItem.parentElement; // most cases it will be the same.
 ```
 
-#### Parent of Parent
+- Parent of Parent
 ```JavaScript
 val = listItem.parentElement.parentElement;
 ```
 
-#### Get next sibling
+- Get next sibling
 ```JavaScript
 val = listItem.nextSibling; // returns next node, whether it’s an element/text 
 val = listItem.nextElementSibling;  // returns next actual element
 ```
-#### Move to the other siblings
+- Move to the other siblings
 ```JavaScript
 val = listItem.nextElementSibling.nextElementSibling;
 ```
 
-#### Get previous sibling
+- Get previous sibling
 ```JavaScript
 val = listItem.previousSibling;  returns previous node; element/text
 val = listItem.previousElementSibling;   returns previouis actual element
@@ -412,9 +411,9 @@ document.querySelector('ul.collection').appendChild(li);
 console.log(li);
 ```
 ### Removing & Replacing Elements
-#### Replace Elements
+- Replace Elements
 
-- Example – replacing h5 with an h2 element;
+*Example – replacing h5 with an h2 element;*
 
 - Get the Element
 ```JavaScript
@@ -484,4 +483,125 @@ val = link;
 console.log(val);
 ```
 
+### Event Listeners & The Event Object
 
+- Event Listener with Unnamed Function
+```JavaScript
+	document.querySelector('.clear-tasks').addEventListener('click', function(e){
+	  console.log('Hello World');
+	  // put a # tag inside the href, prevents the browser to redirect, or use:
+	  // e.preventDefault(); ->this will stop the default behavior(testing purposes) 
+	});
+```
+- Event Listener with Named Function
+```JavaScript
+	document.querySelector('.clear-tasks').addEventListener('click', onClick);
+
+	function onClick(e){
+		  //console.log('Clicked');
+		  let val;
+		  // Event target element - Represents the element that the event actually happened on 
+		  val = e;
+		  val = e.target;
+		  val = e.target.id;
+		  val = e.target.className;
+		  val = e.target.classList;
+		  // Event type - in this case a click
+		  val = e.type;   
+		  // Timestamp
+		  val = e.timeStamp;
+		  // Coordinates of the Even Relative to the window
+		  val = e.clientY;
+		  val = e.clientX;
+		  // Relative to the Element Itself
+		  val = e.offsetY;
+		  val = e.offsetX;
+		  
+		  console.log(val);
+	}
+```
+#### Mouse Events
+```JavaScript
+	const clearBtn = document.querySelector('.clear-tasks');  // button on the form
+	const card = document.querySelector('.card');	// the whole form
+	const heading = document.querySelector('h5');	// form title
+
+	// Click
+	clearBtn.addEventListener('click', runEvent);
+	// Doubleclick
+	clearBtn.addEventListener('dblclick', runEvent);
+	// Mousedown
+	clearBtn.addEventListener('mousedown', runEvent);
+	// Mouseup
+	clearBtn.addEventListener('mouseup', runEvent);
+	// Mouseenter
+	card.addEventListener('mouseenter', runEvent);
+	// Mouseleave
+	card.addEventListener('mouseleave', runEvent);
+	// Mouseover
+	card.addEventListener('mouseover', runEvent);
+	// Mouseout
+	card.addEventListener('mouseout', runEvent);
+	// Mousemove
+	card.addEventListener('mousemove', runEvent);
+
+	//Event Handler
+
+	function runEvent(e) {
+	  console.log(`EVENT TYPE: ${e.type}`); // returns the event type spots the location of the event
+	  heading.textContent= `MouseX: ${e.offsetX} MouseY: ${e.offsetY}`; 	  
+	  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`; // changes the color as you move around -
+	}
+```
+### Keyboard & Input Events
+```JavaScript
+	const form = document.querySelector('form'); 
+	const taskInput = document.getElementById('task');
+
+	form.addEventListener('submit', runEvent);
+
+	function runEvent(e){
+	  console.log(`EVENT TYPE: ${e.type}`);
+	  console.log(taskInput.value);
+	  e.preventDefault();
+	}
+```
+![project dom](./images/domImg2.png)
+- Event Types:
+```JavaScript
+	// Submit
+		form.addEventListener('submit', runEvent);
+	// Keydown
+		taskInput.addEventListener('keydown', runEvent);
+	// Keydown
+		taskInput.addEventListener('keyup', runEvent);
+	//Keypress
+		taskInput.addEventListener('keypress', runEvent);  generalized key event
+	// Focus
+		taskInput.addEventListener('focus', runEvent); 
+	// Blur
+		taskInput.addEventListener('blur', runEvent);  opposite of focus(click out)
+	// Cut
+		taskInput.addEventListener('cut', runEvent);  right click and cut Ctrl+x
+	// Paste
+		taskInput.addEventListener('paste', runEvent);  right click and paste Ctrl+v
+	// Input
+		taskInput.addEventListener('input', runEvent);  any input(cut,past,focus,…)
+	// Change
+	/*			<select>
+				  <option value="1">1</option>
+				  <option value="2">2</option>
+				  <option value="3">3</option>
+				</select>
+	(Note: When using materialize.js we need to use some jQuery to see it on the page. )
+	*/
+	const select = document.querySelector('select');
+	select.addEventListener('change', runEvent);
+
+	function runEvent(e){
+	  console.log(`EVENT TYPE: ${e.type}`);
+	  console.log(e.target.value);  value of the element it happens on (input)
+	  heading.innerText = e.target.value;  input changes the heading with keydown
+	  e.preventDefault();
+	}
+```
