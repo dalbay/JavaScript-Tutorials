@@ -170,7 +170,7 @@ console.log(val);
 	document.querySelector('li:nth-child(even)').style.background = '#f4f4f4';
 ```
 ## DOM Selectors for Multiple Elements
-### document.getElementsByClassName
+### document.getElementsByClassName()
 ```JavaScript
 	const items = document.getElementsByClassName('collection-item');
 
@@ -192,7 +192,7 @@ console.log(val);
 	 items[0].style.color = 'red';
 	 items[3].textContent = 'Hello';
 ```
-### document.getElementsByTagName
+### document.getElementsByTagName()
 ```JavaScript
  let lis = document.getElementsByTagName('li');
  console.log(lis);		
@@ -213,7 +213,7 @@ console.log(val);
  lis[0].style.color = 'red';
  lis[3].textContent = 'Hello';
 ```
-### document.querySelectorAll
+### document.querySelectorAll()
 - querySelectorAll will returns a Node-List
 - A Node-List will not just count elements but also Text nodes
 - We don’t have to convert it to an array to loop through it
@@ -241,4 +241,27 @@ console.log(val);
 ![project dom](./images/domImg1.png)
 ## Traversing the DOM
 
+### Selecting elements
+```JavaScript
+let val;
+const list = document.querySelector('ul.collection');
+/* OUTPUT:
+    <ul class="collection">
+    <li class="collection-item">...</li>
+    <li class="collection-item">...</li>
+    <li class="collection-item">...</li>
+    <li class="collection-item">...</li>
+    <li class="collection-item">...</li>
+    </ul>
+*/
+const listItem = document.querySelector('li.collection-item:first-child');
+console.log(list);
+/* OUTPUT:    
+    <li class="collection-item">
+        List Item<a class="delete-item secondary-content" href="#">...</a>
+    </li>
+*/
+val = listItem;
+val = list;
+```
 
