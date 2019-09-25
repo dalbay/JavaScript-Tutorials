@@ -147,6 +147,7 @@
 */
 ```
 ## DOM Selectors for Single Elements
+
 ### document.getElementById()
 ```JavaScript
 	const taskTitle = document.getElementById('task-title');
@@ -242,7 +243,7 @@
 ![project dom](./images/domImg1.png)
 ## Traversing the DOM
 
-### Selecting elements
+### Selecting Elements
 ```JavaScript
 	let val;
 	const list = document.querySelector('ul.collection');
@@ -265,7 +266,7 @@
 	val = listItem;
 	val = list;
 ```
-### Get child nodes
+### Get Child Nodes
 - Will also count the text nodes 
 - Returns a nodeList
 val = list.childNodes;
@@ -298,7 +299,7 @@ Node Type by number:
 - 9 Document itself
 - 10 Doctype
 
-### Get children element nodes
+### Get Children Element Nodes
 - Will only count the elements
 - Returns an HtmlCollection
 val = list.children;
@@ -342,7 +343,7 @@ val = list.children;
 ```JavaScript
 	val = list.childElementCount;
 ```
-### Get parent node
+### Get Parent Node
 ```JavaScript
 	val = listItem.parentNode;
 	val = listItem.parentElement; // most cases it will be the same.
@@ -369,7 +370,7 @@ val = list.children;
 	val = listItem.previousElementSibling;   returns previouis actual element
 ```
 
-### Creating Elements
+## Creating Elements
 
 - Create element
 ```JavaScript
@@ -411,8 +412,9 @@ val = list.children;
 
 	console.log(li);
 ```
-### Removing & Replacing Elements
-- Replace Elements
+## Removing & Replacing Elements
+
+### Replace Elements
 
 *Example – replacing h5 with an h2 element;*
 
@@ -440,7 +442,7 @@ val = list.children;
 ```JavaScript
 	cardAction.replaceChild(newHeading, oldHeading);
 ```
-#### Remove Element
+### Remove Element
 
 - Get the Element
 ```JavaScript
@@ -456,7 +458,7 @@ val = list.children;
 	list.removeChild(lis[3]);   Same result as above
 ```
 
-#### Classes & Attributes
+### Classes & Attributes
 ```JavaScript
 	const firstLi = document.querySelector('li:first-child');
 	const link = firstLi.children[0];  // we are calling the a tag.
@@ -484,7 +486,7 @@ val = list.children;
 	console.log(val);
 ```
 
-### Event Listeners & The Event Object
+## Event Listeners & The Event Object
 
 - Event Listener with Unnamed Function
 ```JavaScript
@@ -521,7 +523,7 @@ val = list.children;
 	  console.log(val);
 	}
 ```
-#### Mouse Events
+## Mouse Events
 ```JavaScript
 	const clearBtn = document.querySelector('.clear-tasks');  // button on the form
 	const card = document.querySelector('.card');	// the whole form
@@ -554,7 +556,7 @@ val = list.children;
 	  document.body.style.backgroundColor = `rgb(${e.offsetX}, ${e.offsetY}, 40)`; // changes the color as you move around -
 	}
 ```
-### Keyboard & Input Events
+## Keyboard & Input Events
 ```JavaScript
 	const form = document.querySelector('form'); 
 	const taskInput = document.getElementById('task');
@@ -606,9 +608,9 @@ function runEvent(e){
   e.preventDefault();
 }
 ```
-### Event Bubbling & Delegation
+## Event Bubbling & Delegation
 
-#### Event Bubbling
+### Event Bubbling
 - Is the bubbling of the event through the DOM. 
 - When an event happens on an element in the DOM it will bubble up through its parents.
 
@@ -646,7 +648,7 @@ Now when you click on the Task List title, the events will bubble up and all the
  ![project dom](./images/domImg3.png)
 
 
-#### Event Delegation
+### Event Delegation
 -	Is almost the opposite of Event Bubbling.
 -	It’s where we put the listener on one of the parent elements and then we go down. 
 
@@ -715,7 +717,7 @@ To get the a tag, we need to check inside the deleteItem function the target ele
 
 
 
-### Local and Session Storage
+## Local and Session Storage
 
 The Local storage API is part of the browser. Look at the window object in the console and you will see all the methods you can use with the localStorage API.
    ![project dom](./images/domImg5.png)
@@ -726,7 +728,7 @@ The Local storage API is part of the browser. Look at the window object in the c
 - You can still save objects and arrays but you have to turn them into string first using a method called **JSON.stringify()** ; and when you pull it out to use it you want to parse it back you want to use a method called **JSON.parse()** .
 - The difference between locals storage and session storage is will stay until you manually clear it out in your settings or through your program, and session storage will go away once your browser is closed – session is closed. But the API is the same for both.
 
-#### Set Local Storage Item
+### Set Local Storage Item
 
 This is how you set data in your browser:  
 ```JavaScript
@@ -735,7 +737,7 @@ This is how you set data in your browser:
 ```
 Look in your browser under Storage -> Local Storage -> we will see the key-value set in our browser:
    ![project dom](./images/domImg6.png)  
-#### Set Session Storage Item
+### Set Session Storage Item
 ```JavaScript
 	sessionStorage.setItem('name', 'Beth');
 ```
