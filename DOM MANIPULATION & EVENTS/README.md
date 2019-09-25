@@ -82,25 +82,25 @@
 ```
 ![project dom](./images/domImg.png)
 ```JavaScript
-let val;
+	let val;
 
-val = document.all[1];
-console.log(val);
+	val = document.all[1];
+	console.log(val);
 /*
 	OUTPUT:
 	<head>...</head>
 */
 
-val = document.URL;
-console.log(val);
+	val = document.URL;
+	console.log(val);
 /*
 	OUTPUT:
 	http://127.0.0.1:5500/index.html
 */
 
 // val = document.forms[0].id;
-val = document.forms;
-console.log(val);
+	val = document.forms;
+	console.log(val);
 /*
 	OUTPUT:
 	HTMLCollection [form#task-form, task-form: form#task-form]
@@ -110,15 +110,15 @@ console.log(val);
 	__proto__: HTMLCollection
 */
 
-val = document.links[0].className;
-console.log(val);
+	val = document.links[0].className;
+	console.log(val);
 /*
 	OUTPUT:
 	delete-item secondary-content
 */
 
-val = document.scripts;
-console.log(val);
+	val = document.scripts;
+	console.log(val);
 /*
 	OUTPUT:
 	HTMLCollection(3) [script, script, script]
@@ -131,14 +131,14 @@ console.log(val);
 */
 
 // you can turn HTML collections into arrays to use forEach looping
-let scripts = document.scripts;
-let scriptsArr = Array.from(scripts);
+	let scripts = document.scripts;
+	let scriptsArr = Array.from(scripts);
 
-scriptsArr.forEach(function(script) {
-  console.log(script.getAttribute('src'));
-});
+	scriptsArr.forEach(function(script) {
+	  console.log(script.getAttribute('src'));
+	});
 
-console.log(val);
+	console.log(val);
 /*
 	OUTPUT:
 	https://code.jquery.com/jquery-3.2.1.js
@@ -151,18 +151,18 @@ console.log(val);
 ```JavaScript
 	const taskTitle = document.getElementById('task-title');
 
-	// Change styling
+// Change styling
 	 taskTitle.style.color = 'red';
 	 taskTitle.style.padding = '5px';
 
-	// Change content
+// Change content
 	taskTitle.textContent = 'Task List';
 	taskTitle.innerText = 'My Tasks';
 	taskTitle.innerHTML = '<span style="color:red">Task List</span>';
 ```
 ### document.querySelector()
 ```JavaScript
-	// Change styling
+// Change styling
 	document.querySelector('li').style.color = 'red';
 	document.querySelector('ul li').style.color = 'blue';
 	document.querySelector('li:last-child').style.color = 'red';
@@ -187,15 +187,15 @@ console.log(val);
 	*/
 	console.log(items[0]);  // the first li item in the HtmlCollection
 
-	// Change styling
+// Change styling
 
 	 items[0].style.color = 'red';
 	 items[3].textContent = 'Hello';
 ```
 ### document.getElementsByTagName()
 ```JavaScript
- let lis = document.getElementsByTagName('li');
- console.log(lis);		
+	let lis = document.getElementsByTagName('li');
+	console.log(lis);		
  /* OUTPUT - same result as above
     HTMLCollection(5)
         0: li.collection-item
@@ -206,45 +206,45 @@ console.log(val);
         length: 5
         __proto__: HTMLCollection
   */ 
- console.log(lis[0]);	// the first li item in the HtmlCollection
+	console.log(lis[0]);	// the first li item in the HtmlCollection
  
  // Change styling
  
- lis[0].style.color = 'red';
- lis[3].textContent = 'Hello';
+	 lis[0].style.color = 'red';
+	 lis[3].textContent = 'Hello';
 ```
 ### document.querySelectorAll()
 - querySelectorAll will returns a Node-List
 - A Node-List will not just count elements but also Text nodes
 - We don’t have to convert it to an array to loop through it
 ```JavaScript
- const items = document.querySelectorAll('ul.collection li.collection-item');
- console.log(items);
- /* OUTPUT:
-    NodeList(5)
-        0: li.collection-item
-        1: li.collection-item
-        2: li.collection-item
-        3: li.collection-item
-        4: li.collection-item
-        length: 5
-        __proto__: NodeList
-  */
- 
- //Change styling/
- const liOdd = document.querySelectorAll('li:nth-child(odd)');
- 
- liOdd.forEach(function(li, index){
-   li.style.background = '#ccc';
- });
+	 const items = document.querySelectorAll('ul.collection li.collection-item');
+	 console.log(items);
+	 /* OUTPUT:
+		NodeList(5)
+		0: li.collection-item
+		1: li.collection-item
+		2: li.collection-item
+		3: li.collection-item
+		4: li.collection-item
+		length: 5
+		__proto__: NodeList
+	  */
+	 
+	 //Change styling/
+	 const liOdd = document.querySelectorAll('li:nth-child(odd)');
+	 
+	 liOdd.forEach(function(li, index){
+	   li.style.background = '#ccc';
+	 });
 ```
 ![project dom](./images/domImg1.png)
 ## Traversing the DOM
 
 ### Selecting elements
 ```JavaScript
-let val;
-const list = document.querySelector('ul.collection');
+	let val;
+	const list = document.querySelector('ul.collection');
 /* OUTPUT:
     <ul class="collection">
     <li class="collection-item">...</li>
@@ -254,22 +254,22 @@ const list = document.querySelector('ul.collection');
     <li class="collection-item">...</li>
     </ul>
 */
-const listItem = document.querySelector('li.collection-item:first-child');
-console.log(list);
+	const listItem = document.querySelector('li.collection-item:first-child');
+	console.log(list);
 /* OUTPUT:    
     <li class="collection-item">
         List Item<a class="delete-item secondary-content" href="#">...</a>
     </li>
 */
-val = listItem;
-val = list;
+	val = listItem;
+	val = list;
 ```
 ### Get child nodes
 - Will also count the text nodes 
 - Returns a nodeList
 val = list.childNodes;
 ```JavaScript
-console.log(list);
+	console.log(list);
 /* OUTPUT: 
 	<NodeList length="11">
 		EmptyTextNode
@@ -285,9 +285,9 @@ console.log(list);
 		EmptyTextNode
 	</NodeList>
 */
-val = list.childNodes[0];
-val = list.childNodes[0].nodeName;
-val = list.childNodes[3].nodeType; // nodeType will returns a number
+	val = list.childNodes[0];
+	val = list.childNodes[0].nodeName;
+	val = list.childNodes[3].nodeType; // nodeType will returns a number
 ```
 Node Type by number:
 - 1 Element
@@ -313,102 +313,102 @@ val = list.children;
 ```
 - Get an Element from the Children
 ```JavaScript
-val = list.children[1];
-list.children[1].textContent = 'Hello';
+	val = list.children[1];
+	list.children[1].textContent = 'Hello';
 ```
 - Children of children
 ```JavaScript
-val = list.children[3].children;
-list.children[3].children[0].id = 'test-link';
+	val = list.children[3].children;
+	list.children[3].children[0].id = 'test-link';
 ```
 - First child
 ```JavaScript
-val = list.firstChild;  // returns first node, whether it’s an element/text,...
+	val = list.firstChild;  // returns first node, whether it’s an element/text,...
 ```
 - First Element Child
 ```JavaScript
-val = list.firstElementChild;  // returns first actual element.
+	val = list.firstElementChild;  // returns first actual element.
 ```
 - Last child
 ```JavaScript
-val = list.lastChild;  // returns last node, whether it’s an element/text,...
+	val = list.lastChild;  // returns last node, whether it’s an element/text,...
 ```
 - Last Element child
 ```JavaScript
-val = list.lastElementChild; // returns last actual element.
+	val = list.lastElementChild; // returns last actual element.
 ```
 - Count child elements
 ```JavaScript
-val = list.childElementCount;
+	val = list.childElementCount;
 ```
 ### Get parent node
 ```JavaScript
-val = listItem.parentNode;
-val = listItem.parentElement; // most cases it will be the same.
+	val = listItem.parentNode;
+	val = listItem.parentElement; // most cases it will be the same.
 ```
 
 - Parent of Parent
 ```JavaScript
-val = listItem.parentElement.parentElement;
+	val = listItem.parentElement.parentElement;
 ```
 
 - Get next sibling
 ```JavaScript
-val = listItem.nextSibling; // returns next node, whether it’s an element/text 
-val = listItem.nextElementSibling;  // returns next actual element
+	val = listItem.nextSibling; // returns next node, whether it’s an element/text 
+	val = listItem.nextElementSibling;  // returns next actual element
 ```
 - Move to the other siblings
 ```JavaScript
-val = listItem.nextElementSibling.nextElementSibling;
+	val = listItem.nextElementSibling.nextElementSibling;
 ```
 
 - Get previous sibling
 ```JavaScript
-val = listItem.previousSibling;  returns previous node; element/text
-val = listItem.previousElementSibling;   returns previouis actual element
+	val = listItem.previousSibling;  returns previous node; element/text
+	val = listItem.previousElementSibling;   returns previouis actual element
 ```
 
 ### Creating Elements
 
 - Create element
 ```JavaScript
-const li  = document.createElement('li');
+	const li  = document.createElement('li');
 ```
 - Add class
 ```JavaScript
-li.className = 'collection-item';
+	li.className = 'collection-item';
 ```
 - Add id
 ```JavaScript
-li.id = 'new-item';
+	li.id = 'new-item';
 ```
 - Add attribute
 ```JavaScript
-li.setAttribute('title', 'New Item');
+	li.setAttribute('title', 'New Item');
 ```
 - Create text node and append
 ```JavaScript
-li.appendChild(document.createTextNode('Hello World'));
+	li.appendChild(document.createTextNode('Hello World'));
 ```
 - Create new link element
 ```JavaScript
-const link = document.createElement('a');
+	const link = document.createElement('a');
 ```
 - Add classes
 ```JavaScript
-link.className = 'delete-item secondary-content';
+	link.className = 'delete-item secondary-content';
 ```
 - Add icon html
 ```JavaScript
-link.innerHTML = '<i class="fa fa-remove"></i>';  materialize.min.js add-on
-Append link into li
-li.appendChild(link);
+	link.innerHTML = '<i class="fa fa-remove"></i>';  materialize.min.js add-on
+	Append link into li
+	li.appendChild(link);
 ```
 - Append li as child to ul
 ```JavaScript
-document.querySelector('ul.collection').appendChild(li);
+	document.querySelector('ul.collection').appendChild(li);
 
-console.log(li);
+	console.log(li);
 ```
 ### Removing & Replacing Elements
 - Replace Elements
@@ -417,70 +417,70 @@ console.log(li);
 
 1. Get the Element
 ```JavaScript
-const newHeading = document.createElement('h2');
+	const newHeading = document.createElement('h2');
 ```
 2. Add an Id
 ```JavaScript
-newHeading.id = 'task-title';
+	newHeading.id = 'task-title';
 ```
 3. Create New Text Node
 ```JavaScript
-newHeading.appendChild(document.createTextNode('Task List'));
+	newHeading.appendChild(document.createTextNode('Task List'));
 ```
 4. Get the Old Element
 ```JavaScript
-const oldHeading = document.getElementById('task-title');
+	const oldHeading = document.getElementById('task-title');
 ```
 5. Get the Parent
 ```JavaScript
-const cardAction = document.querySelector('.card-action');
+	const cardAction = document.querySelector('.card-action');
 ```
 6. Replace the Nodes
 ```JavaScript
-cardAction.replaceChild(newHeading, oldHeading);
+	cardAction.replaceChild(newHeading, oldHeading);
 ```
 #### Remove Element
 
 - Get the Element
 ```JavaScript
-const lis = document.querySelectorAll('li');
-const list = document.querySelector('ul');
+	const lis = document.querySelectorAll('li');
+	const list = document.querySelector('ul');
 ```
 - Remove list item
 ```JavaScript
-lis[0].remove();
+	lis[0].remove();
 ```
 - Remove child element
 ```JavaScript
-list.removeChild(lis[3]);   Same result as above
+	list.removeChild(lis[3]);   Same result as above
 ```
 
 #### Classes & Attributes
 ```JavaScript
-const firstLi = document.querySelector('li:first-child');
-const link = firstLi.children[0];  // we are calling the a tag.
+	const firstLi = document.querySelector('li:first-child');
+	const link = firstLi.children[0];  // we are calling the a tag.
 
-let val;
+	let val;
 ```
 - Classes:
 ```JavaScript
-val = link.className;  // returns a string of the class names.
-val = link.classList;  // returns a DOMTokenList, which is set up like an array
-val = link.classList[0];
-link.classList.add('test');  // to add a class 
-link.classList.remove('test'); // to remove a class
-val = link;  
+	val = link.className;  // returns a string of the class names.
+	val = link.classList;  // returns a DOMTokenList, which is set up like an array
+	val = link.classList[0];
+	link.classList.add('test');  // to add a class 
+	link.classList.remove('test'); // to remove a class
+	val = link;  
 ```
 - Attributes:
 ```JavaScript
-val = link.getAttribute('href');
-val = link.setAttribute('href', 'http://google.com');
-link.setAttribute('title', 'Google');
-val = link.hasAttribute('title');
-link.removeAttribute('title');
-val = link;
+	val = link.getAttribute('href');
+	val = link.setAttribute('href', 'http://google.com');
+	link.setAttribute('title', 'Google');
+	val = link.hasAttribute('title');
+	link.removeAttribute('title');
+	val = link;
 
-console.log(val);
+	console.log(val);
 ```
 
 ### Event Listeners & The Event Object
@@ -498,26 +498,26 @@ console.log(val);
 	document.querySelector('.clear-tasks').addEventListener('click', onClick);
 
 	function onClick(e){
-		  //console.log('Clicked');
-		  let val;
-		  // Event target element - Represents the element that the event actually happened on 
-		  val = e;
-		  val = e.target;
-		  val = e.target.id;
-		  val = e.target.className;
-		  val = e.target.classList;
-		  // Event type - in this case a click
-		  val = e.type;   
-		  // Timestamp
-		  val = e.timeStamp;
-		  // Coordinates of the Even Relative to the window
-		  val = e.clientY;
-		  val = e.clientX;
-		  // Relative to the Element Itself
-		  val = e.offsetY;
-		  val = e.offsetX;
-		  
-		  console.log(val);
+	  //console.log('Clicked');
+	  let val;
+	  // Event target element - Represents the element that the event actually happened on 
+	  val = e;
+	  val = e.target;
+	  val = e.target.id;
+	  val = e.target.className;
+	  val = e.target.classList;
+	  // Event type - in this case a click
+	  val = e.type;   
+	  // Timestamp
+	  val = e.timeStamp;
+	  // Coordinates of the Even Relative to the window
+	  val = e.clientY;
+	  val = e.clientX;
+	  // Relative to the Element Itself
+	  val = e.offsetY;
+	  val = e.offsetX;
+	  
+	  console.log(val);
 	}
 ```
 #### Mouse Events
@@ -526,26 +526,26 @@ console.log(val);
 	const card = document.querySelector('.card');	// the whole form
 	const heading = document.querySelector('h5');	// form title
 
-	// Click
+// Click
 	clearBtn.addEventListener('click', runEvent);
-	// Doubleclick
+// Doubleclick
 	clearBtn.addEventListener('dblclick', runEvent);
-	// Mousedown
+// Mousedown
 	clearBtn.addEventListener('mousedown', runEvent);
-	// Mouseup
+// Mouseup
 	clearBtn.addEventListener('mouseup', runEvent);
-	// Mouseenter
+// Mouseenter
 	card.addEventListener('mouseenter', runEvent);
-	// Mouseleave
+// Mouseleave
 	card.addEventListener('mouseleave', runEvent);
-	// Mouseover
+// Mouseover
 	card.addEventListener('mouseover', runEvent);
-	// Mouseout
+// Mouseout
 	card.addEventListener('mouseout', runEvent);
-	// Mousemove
+// Mousemove
 	card.addEventListener('mousemove', runEvent);
 
-	//Event Handler
+//Event Handler
 
 	function runEvent(e) {
 	  console.log(`EVENT TYPE: ${e.type}`); // returns the event type spots the location of the event
@@ -569,41 +569,41 @@ console.log(val);
 ![project dom](./images/domImg2.png)
 - Event Types:
 ```JavaScript
-	// Submit
-		form.addEventListener('submit', runEvent);
-	// Keydown
-		taskInput.addEventListener('keydown', runEvent);
-	// Keydown
-		taskInput.addEventListener('keyup', runEvent);
-	//Keypress
-		taskInput.addEventListener('keypress', runEvent);  generalized key event
-	// Focus
-		taskInput.addEventListener('focus', runEvent); 
-	// Blur
-		taskInput.addEventListener('blur', runEvent);  opposite of focus(click out)
-	// Cut
-		taskInput.addEventListener('cut', runEvent);  right click and cut Ctrl+x
-	// Paste
-		taskInput.addEventListener('paste', runEvent);  right click and paste Ctrl+v
-	// Input
-		taskInput.addEventListener('input', runEvent);  any input(cut,past,focus,…)
-	// Change
-	/*			<select>
-				  <option value="1">1</option>
-				  <option value="2">2</option>
-				  <option value="3">3</option>
-				</select>
-	(Note: When using materialize.js we need to use some jQuery to see it on the page. )
-	*/
-	const select = document.querySelector('select');
-	select.addEventListener('change', runEvent);
+// Submit
+	form.addEventListener('submit', runEvent);
+// Keydown
+	taskInput.addEventListener('keydown', runEvent);
+// Keydown
+	taskInput.addEventListener('keyup', runEvent);
+//Keypress
+	taskInput.addEventListener('keypress', runEvent);  generalized key event
+// Focus
+	taskInput.addEventListener('focus', runEvent); 
+// Blur
+	taskInput.addEventListener('blur', runEvent);  opposite of focus(click out)
+// Cut
+	taskInput.addEventListener('cut', runEvent);  right click and cut Ctrl+x
+// Paste
+	taskInput.addEventListener('paste', runEvent);  right click and paste Ctrl+v
+// Input
+	taskInput.addEventListener('input', runEvent);  any input(cut,past,focus,…)
+// Change
+/*<select>
+	  <option value="1">1</option>
+	  <option value="2">2</option>
+	  <option value="3">3</option>
+  </select>
+(Note: When using materialize.js we need to use some jQuery to see it on the page. )
+*/
+const select = document.querySelector('select');
+select.addEventListener('change', runEvent);
 
-	function runEvent(e){
-	  console.log(`EVENT TYPE: ${e.type}`);
-	  console.log(e.target.value);  value of the element it happens on (input)
-	  heading.innerText = e.target.value;  input changes the heading with keydown
-	  e.preventDefault();
-	}
+function runEvent(e){
+  console.log(`EVENT TYPE: ${e.type}`);
+  console.log(e.target.value);  value of the element it happens on (input)
+  heading.innerText = e.target.value;  input changes the heading with keydown
+  e.preventDefault();
+}
 ```
 ### Event Bubbling & Delegation
 
