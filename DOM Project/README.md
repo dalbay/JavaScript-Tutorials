@@ -1,6 +1,6 @@
-# DOM Project
+# DOM Manipulation Sample Project
 
-## Part 1 - UI
+## Part 1 - Add New Task List Items to the Page
 *Dynamically add ```<li>``` tags to an unordered list, append ```<a>``` links and inner HTML content to it.*  
 
 1. Add ***materialize*** (responsive front-end framework) to our project. Materialize also needs jQuery as a dependent; download jQuery as well.
@@ -67,4 +67,53 @@ function addTask(e) {
     e.preventDefault();
 }
 window.addEventListener('load', loadEventListeners, false);
+```
+## Part 2 - Delete & Filter Tasks from the List Items
+When we press the yellow x (```<i>```tag), we want to remove it from the DOM dynamically using event delegation. This means we must put the event lister onto the ul element. 
+![Task list delete image](./images/domProjectImg1.png)
+
+-	In the loadEventListeners() function, add a ‘click’ event listener to the ul element and the function name:
+```JavaScript
+function loadEventListeners() {
+  // Add task event
+  form.addEventListener('submit', addTask);
+  // Remove task event
+  taskList.addEventListener('click',removeTask);
+}
+```
+
+-	Create the remove function:
+```JavaScript
+function removeTask(e){
+  // First, target the i tag 
+  if(e.target.parentElement.classList.contains('delete-item')){
+    if(confirm('Are You Sure?')){                     console confirmation
+      // Remove the li tag
+      e.target.parentElement.parentElement.remove();
+    }
+  } 
+}
+```
+-	Now add functionality to the Clear Tasks Button; to clear all task (li elements).
+
+-	Get the ```<a>``` tag(Clear Tasks Button) from the DOM:
+```JavaScript
+const clearBtn = document.querySelector('.clear-tasks');
+```
+-	Add a ‘click’ event listener to the clearBtn inside the loadEventListeners function:
+```JavaScript
+ 	// Clear task event
+ 	clearBtn.addEventListener('click',clearTasks);
+```
+-	Create the Clear Task function:
+```JavaScript
+//There are two things that we can do:
+function clearTasks(){
+	 // 1. 
+  taskList.innerHTML = '';         
+  // 2. remove each one - 'faster process'
+  while(taskList.firstChild){            while there still is a firstChild
+    taskList.removeChild(taskList.firstChild);
+  } 
+}
 ```
