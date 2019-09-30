@@ -72,47 +72,47 @@ window.addEventListener('load', loadEventListeners, false);
 1. When we press the yellow x (```<i>```tag), we want to remove that task from the DOM by using ***event delegation***. This means we must put the event lister onto the ul element. 
 ![Task list delete image](./images/domProjectImg1.png)  
 
-In the , Add a ‘click’ event listener for the ```<ul>```element to the loadEventListeners() function.
+Add a ‘click’ event listener for the ```<ul>```element that will remove the task from the list to the loadEventListeners() function.
 ```JavaScript
 function loadEventListeners() {
   // Add task event
   form.addEventListener('submit', addTask);
-  // Remove task event
-  taskList.addEventListener('click',removeTask);
+  // Remove task event that will remove the task from the list
+  taskList.addEventListener('click', removeTask);
 }
 ```
 
--	Create the remove function:
+2. Create the remove function (This will remove a single task ```<li>``` element)
 ```JavaScript
-function removeTask(e){
-  // First, target the i tag 
-  if(e.target.parentElement.classList.contains('delete-item')){
-    if(confirm('Are You Sure?')){                     console confirmation
-      // Remove the li tag
-      e.target.parentElement.parentElement.remove();
+function removeTask(e) {
+    // First, target the i tag 
+    if (e.target.parentElement.classList.contains('delete-item')) {
+        if (confirm('Are You Sure?')) { // console confirmation
+            // Remove the li tag
+            e.target.parentElement.parentElement.remove();
+        }
     }
-  } 
 }
 ```
--	Now add functionality to the Clear Tasks Button; to clear all task (li elements).
+![Dom manipulation remove](./images/domProjectImg2.png)
 
--	Get the ```<a>``` tag(Clear Tasks Button) from the DOM:
+3. Now add functionality for the Clear Tasks Button (This will clear all tasks ```<li>``` elements) 
+
+
 ```JavaScript
-const clearBtn = document.querySelector('.clear-tasks');
-```
--	Add a ‘click’ event listener to the clearBtn inside the loadEventListeners function:
-```JavaScript
- 	// Clear task event
- 	clearBtn.addEventListener('click',clearTasks);
-```
--	Create the Clear Task function:
-```JavaScript
-//There are two things that we can do:
+// Get the <a> tag(Clear Tasks Button) from the DOM:
+  const clearBtn = document.querySelector('.clear-tasks');
+
+// Add a ‘click’ event listener to the clearBtn inside the loadEventListeners() function:
+  clearBtn.addEventListener('click',clearTasks);
+
+// Create the Clear Task function:
 function clearTasks(){
-	 // 1. 
+  //There are two approaches we can use:
+	// 1. approach 
   taskList.innerHTML = '';         
-  // 2. remove each one - 'faster process'
-  while(taskList.firstChild){            while there still is a firstChild
+  // 2. approach - remove each one; this is a faster process
+  while(taskList.firstChild){ // while there still is a firstChild
     taskList.removeChild(taskList.firstChild);
   } 
 }

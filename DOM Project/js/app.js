@@ -9,6 +9,8 @@ const taskInput = document.getElementById('task');
 function loadEventListeners() {
     //...listen for form submit and call functions addTask
     form.addEventListener('submit', addTask);
+    // Remove task event that will remove the task from the list
+    taskList.addEventListener('click', removeTask);
 }
 
 function addTask(e) {
@@ -32,4 +34,17 @@ function addTask(e) {
 
     e.preventDefault();
 }
+
+// Create the remove function:
+function removeTask(e) {
+    // First, target the i tag 
+    if (e.target.parentElement.classList.contains('delete-item')) {
+        if (confirm('Are You Sure?')) { // console confirmation
+            // Remove the li tag
+            e.target.parentElement.parentElement.remove();
+        }
+    }
+}
+
+
 window.addEventListener('load', loadEventListeners, false);
