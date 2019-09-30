@@ -28,4 +28,4 @@
 - Copy the link and paste under materialize.css in your project.  
 
 *Here is the code and layout of the task list.  
-![Task list image](./images/domPorjectImg.png)
+![Task list image](./images/domProjectImg.png)
