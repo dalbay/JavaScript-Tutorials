@@ -18,8 +18,41 @@ function loadEventListeners() {
     taskList.addEventListener('click', removeTask);
     //Add a keyup event listener inside the loadAllEventListerners function for the filter const. 
     // Filter tasks event
-  filter.addEventListener('keyup',filterTasks);
+    filter.addEventListener('keyup',filterTasks);
+    // DOM load event - retrieve local storage items.
+    document.addEventListener('DOMContentLoaded',getTasks);
+
 }
+
+// Get Tasks from Local Storage
+function getTasks() {
+    let tasks;
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.forEach(function (task) {
+        // Create li element
+        const li = document.createElement('li');
+        // Add class
+        li.className = 'collection-item';
+        // Create text node and append to li
+        li.appendChild(document.createTextNode(task));
+        // Create new link element
+        const link = document.createElement('a');
+        // Add class
+        link.className = 'delete-item secondary-content';
+        // Add icon html
+        link.innerHTML = '<i class="fa fa-remove"></i>';
+        // Append the link to li
+        li.appendChild(link);
+
+        // Append li to ul
+        taskList.appendChild(li);
+    });
+}
+  
 
 function addTask(e) {
     if (taskInput.value === '') {
@@ -101,8 +134,6 @@ function filterTasks(e) {
     // });
 }
   
-
-
 
 
 window.addEventListener('load', loadEventListeners, false);

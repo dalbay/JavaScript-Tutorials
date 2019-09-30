@@ -161,7 +161,7 @@ function filterTasks(e) {
 
 We are going to persist the data to local storage, so that the task actually stays after reloading the page.  
 
-1. Add a function call that takes the task as an argument. 
+1. Add a function call that takes the task as an argument and saves it to Local Storage.
 ```JavaScript
     // Inside the addTask function, right after we add the task to the DOM
     // Store in LS
@@ -183,3 +183,41 @@ function storeTaskInLocalStorage(task) {
 ```  
 Now, when we add a task and reload the page, it will disappear from the screen, but when you look at Chrome tools under Application -> Local Storage we will see the task persisted to local storage.  
 ![Local Storage list image](./images/domProjectImg4.png)
+
+2. Display the task back inside our ul element from Local Storage.  
+Create a DOM load event inside the loadEventListerners function by calling the DOMContentLoaded event listener right on the document itself; an event that will be called right after the DOM is loaded. 
+
+```JavaScript
+    // DOM load event - retrieve local storage items.
+    document.addEventListener('DOMContentLoaded',getTasks);
+
+    // Get Tasks from Local Storage
+    function getTasks() {
+        let tasks;
+        if (localStorage.getItem('tasks') === null) {
+            tasks = [];
+        } else {
+            tasks = JSON.parse(localStorage.getItem('tasks'));
+        }
+        tasks.forEach(function (task) {
+            // Create li element
+            const li = document.createElement('li');
+            // Add class
+            li.className = 'collection-item';
+            // Create text node and append to li
+            li.appendChild(document.createTextNode(task));
+            // Create new link element
+            const link = document.createElement('a');
+            // Add class
+            link.className = 'delete-item secondary-content';
+            // Add icon html
+            link.innerHTML = '<i class="fa fa-remove"></i>';
+            // Append the link to li
+            li.appendChild(link);
+
+            // Append li to ul
+            taskList.appendChild(li);
+        });
+    }
+```
+
