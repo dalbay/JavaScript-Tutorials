@@ -184,8 +184,9 @@ function storeTaskInLocalStorage(task) {
 Now, when we add a task and reload the page, it will disappear from the screen, but when you look at Chrome tools under Application -> Local Storage we will see the task persisted to local storage.  
 ![Local Storage list image](./images/domProjectImg4.png)
 
-2. Display the task back inside our ul element from Local Storage.  
-Create a DOM load event inside the ```loadEventListerners()``` function by calling the ```DOMContentLoaded``` event listener right on the ```document``` itself; this event will be called right after the DOM is loaded. 
+2. Retrieve the Tasks from Local Storage    
+Create a DOM Load E
+vent inside the ```loadEventListerners()``` function by calling the ```DOMContentLoaded``` event listener right on the ```document``` itself; this event will be called right after the DOM is loaded. 
 
 ```JavaScript
     // DOM load event - retrieve local storage items.
@@ -221,7 +222,7 @@ Create a DOM load event inside the ```loadEventListerners()``` function by calli
     }
 ```
 3. Add functionality to delete a single task from Local Storage when we click the x icon.  
-Add to the ```removeTask()``` function, JavaScript code that removes a task from the DOM.
+Insert a statement to the ```removeTask()``` function, that removes a task from the DOM.
 ```JavaScript 
     // Remove from Local Storage
     removeTaskFromLocalStorage(e.target.parentElement.parentElement);
@@ -243,4 +244,18 @@ Add to the ```removeTask()``` function, JavaScript code that removes a task from
         });
         localStorage.setItem('tasks', JSON.stringify(tasks));
     }
+```  
+4. Clear Local Storage - add functionality to delete all tasks from Local Storage.  
+Add a statement to clearTasks() function that clears the Local Storage.
+```JavaScript
+  // Clear from LS
+  clearTasksFromLocalStorage();
+
+
+// Clear the Local Storage
+function clearTasksFromLocalStorage() {
+    localStorage.clear();
+}
+
 ```
+

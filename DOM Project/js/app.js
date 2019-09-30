@@ -6,6 +6,11 @@ const taskList = document.querySelector('.collection');
 //...get text input
 const taskInput = document.getElementById('task');
 //...general event-listener
+// Get the <a> tag(Clear Tasks Button)
+const clearBtn = document.querySelector('.clear-tasks');
+
+// Add a ‘click’ event listener to the clearBtn inside the loadEventListeners() function:
+  clearBtn.addEventListener('click',clearTasks);
 
 // Get the input element with the id=”filter” for filtering
 const filter = document.querySelector('#filter');
@@ -16,6 +21,8 @@ function loadEventListeners() {
     form.addEventListener('submit', addTask);
     // Remove task event that will remove the task from the list
     taskList.addEventListener('click', removeTask);
+    // Add a ‘click’ event listener to the clearBtn
+    clearBtn.addEventListener('click',clearTasks);
     //Add a keyup event listener inside the loadAllEventListerners function for the filter const. 
     // Filter tasks event
     filter.addEventListener('keyup',filterTasks);
@@ -79,6 +86,61 @@ function addTask(e) {
     e.preventDefault();
 }
 
+// Create the Clear Task function:
+function clearTasks(){
+    //There are two approaches we can use:
+      // 1. approach 
+    taskList.innerHTML = '';         
+    // 2. approach - remove each one; this is a faster process
+    while(taskList.firstChild){ // while there still is a firstChild
+      taskList.removeChild(taskList.firstChild);
+    }
+    // Clear from Local Storage
+    clearTasksFromLocalStorage(); 
+}
+
+  // Create the remove function:
+function removeTask(e) {
+    // First, target the i tag 
+    if (e.target.parentElement.classList.contains('delete-item')) {
+        if (confirm('Are You Sure?')) { // console confirmation
+            // Remove the li tag
+            e.target.parentElement.parentElement.remove();
+
+            // Remove from LS
+            removeTaskFromLocalStorage(e.target.parentElement.parentElement);
+
+        }
+    }
+}
+
+/* We will use the querySelectorAll() method, which returns a nodelist; if we use the getElementByClass() method, which returns an HTMLCollection, we would have to convert the collection to an array in order to use a forEach loop.
+*/
+// Create the Filter Task Function
+function filterTasks(e) {
+    // get input text value
+    const text = e.target.value.toLowerCase();
+    // forEach list in the ul
+    document.querySelectorAll('.collection-item').forEach(function (task) {
+        // get the textNode value
+        const liItem = task.firstChild.textContent;
+        if (liItem.toLowerCase().indexOf(text) != -1) {
+            task.style.display = 'block';
+        } else {
+            task.style.display = 'none';
+        }
+    });
+    // // same as above... we use ‘=>’ instead of ‘function’
+    // liCollection = document.querySelectorAll('.collection-item');
+    // liCollection.forEach(element => {
+    //     const liItem = element.firstChild.textContent;
+    //     if (liItem.toLowerCase().indexOf(text) != -1) {
+    //         element.style.display = 'block';
+    //     } else {
+    //         element.style.display = 'none';
+    //     }
+    // });
+}
 // Store Task into Local Storage
 function storeTaskInLocalStorage(task) {
     let tasks;
@@ -110,51 +172,9 @@ function removeTaskFromLocalStorage(taskItem) {
     localStorage.setItem('tasks', JSON.stringify(tasks));
 }
 
-
-  
-
-// Create the remove function:
-function removeTask(e) {
-    // First, target the i tag 
-    if (e.target.parentElement.classList.contains('delete-item')) {
-        if (confirm('Are You Sure?')) { // console confirmation
-            // Remove the li tag
-            e.target.parentElement.parentElement.remove();
-
-            // Remove from LS
-            removeTaskFromLocalStorage(e.target.parentElement.parentElement);
-
-        }
-    }
-}
-
-
-/* We will use the querySelectorAll() method, which returns a nodelist; if we use the getElementByClass() method, which returns an HTMLCollection, we would have to convert the collection to an array in order to use a forEach loop.
-*/
-// Create the Filter Task Function
-function filterTasks(e) {
-    // get input text value
-    const text = e.target.value.toLowerCase();
-    // forEach list in the ul
-    document.querySelectorAll('.collection-item').forEach(function (task) {
-        // get the textNode value
-        const liItem = task.firstChild.textContent;
-        if (liItem.toLowerCase().indexOf(text) != -1) {
-            task.style.display = 'block';
-        } else {
-            task.style.display = 'none';
-        }
-    });
-    // // same as above... we use ‘=>’ instead of ‘function’
-    // liCollection = document.querySelectorAll('.collection-item');
-    // liCollection.forEach(element => {
-    //     const liItem = element.firstChild.textContent;
-    //     if (liItem.toLowerCase().indexOf(text) != -1) {
-    //         element.style.display = 'block';
-    //     } else {
-    //         element.style.display = 'none';
-    //     }
-    // });
+// Clear the Local Storage
+function clearTasksFromLocalStorage() {
+    localStorage.clear();
 }
   
 
