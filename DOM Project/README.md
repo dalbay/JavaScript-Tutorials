@@ -161,7 +161,7 @@ function filterTasks(e) {
 
 We are going to persist the data to local storage, so that the task actually stays after reloading the page.  
 
-1. Add a function call that takes the task as an argument and saves it to Local Storage.
+1. Save to Local Storage - add a function call that takes the task as an argument and saves it to Local Storage.
 ```JavaScript
     // Inside the addTask function, right after we add the task to the DOM
     // Store in LS
@@ -184,7 +184,7 @@ function storeTaskInLocalStorage(task) {
 Now, when we add a task and reload the page, it will disappear from the screen, but when you look at Chrome tools under Application -> Local Storage we will see the task persisted to local storage.  
 ![Local Storage list image](./images/domProjectImg4.png)
 
-2. Retrieve the Tasks from Local Storage    
+2. Retrieve from Local Storage 
 Create a DOM Load E
 vent inside the ```loadEventListerners()``` function by calling the ```DOMContentLoaded``` event listener right on the ```document``` itself; this event will be called right after the DOM is loaded. 
 
@@ -221,7 +221,7 @@ vent inside the ```loadEventListerners()``` function by calling the ```DOMConten
         });
     }
 ```
-3. Add functionality to delete a single task from Local Storage when we click the x icon.  
+3. Delete from Loacal Storage - Add functionality to delete a single task from Local Storage when we click the x icon.  
 Insert a statement to the ```removeTask()``` function, that removes a task from the DOM.
 ```JavaScript 
     // Remove from Local Storage
