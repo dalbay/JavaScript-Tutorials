@@ -30,7 +30,7 @@
 *Here is the HTML code and layout of the task list*.  
 ![Task list image](./images/domProjectImg.png)
 
-*The app.js code – we are dynamically adding li elements to our ul .collection tag whenever we input a new task and prses the Add Task Button.*
+4. Inside the app.js document add the JavaScript code to dynamically add ```<li>``` elements to the ```ul .collection``` whenever we input a new task inside the task input element; and press the Add Task Button.
 ```JavaScript
 // Define UI Vars
 //...get form
@@ -69,10 +69,10 @@ function addTask(e) {
 window.addEventListener('load', loadEventListeners, false);
 ```
 ## Part 2 - Delete & Filter Tasks from the List Items
-When we press the yellow x (```<i>```tag), we want to remove it from the DOM dynamically using event delegation. This means we must put the event lister onto the ul element. 
-![Task list delete image](./images/domProjectImg1.png)
+1. When we press the yellow x (```<i>```tag), we want to remove that task from the DOM by using ***event delegation***. This means we must put the event lister onto the ul element. 
+![Task list delete image](./images/domProjectImg1.png)  
 
--	In the loadEventListeners() function, add a ‘click’ event listener to the ul element and the function name:
+In the , Add a ‘click’ event listener for the ```<ul>```element to the loadEventListeners() function.
 ```JavaScript
 function loadEventListeners() {
   // Add task event
