@@ -167,7 +167,7 @@ We are going to persist the data to local storage, so that the task actually sta
     // Store in LS
     storeTaskInLocalStorage(taskInput.value);
 
-// Store Task function
+// Store Task to Local Storage
 function storeTaskInLocalStorage(task) {
     let tasks;
     if (localStorage.getItem('tasks') === null) {
@@ -185,13 +185,13 @@ Now, when we add a task and reload the page, it will disappear from the screen, 
 ![Local Storage list image](./images/domProjectImg4.png)
 
 2. Display the task back inside our ul element from Local Storage.  
-Create a DOM load event inside the loadEventListerners function by calling the DOMContentLoaded event listener right on the document itself; an event that will be called right after the DOM is loaded. 
+Create a DOM load event inside the ```loadEventListerners()``` function by calling the ```DOMContentLoaded``` event listener right on the ```document``` itself; this event will be called right after the DOM is loaded. 
 
 ```JavaScript
     // DOM load event - retrieve local storage items.
     document.addEventListener('DOMContentLoaded',getTasks);
 
-    // Get Tasks from Local Storage
+    // Retrieves Tasks from Local Storage
     function getTasks() {
         let tasks;
         if (localStorage.getItem('tasks') === null) {
@@ -220,4 +220,27 @@ Create a DOM load event inside the loadEventListerners function by calling the D
         });
     }
 ```
+3. Add functionality to delete a single task from Local Storage when we click the x icon.  
+Add to the ```removeTask()``` function, JavaScript code that removes a task from the DOM.
+```JavaScript 
+    // Remove from Local Storage
+    removeTaskFromLocalStorage(e.target.parentElement.parentElement);
 
+    // Remove Task from Local Storage
+    function removeTaskFromLocalStorage(taskItem) {
+        let tasks;
+        if (localStorage.getItem('tasks') === null) {
+            tasks = [];
+        } else {
+            tasks = JSON.parse(localStorage.getItem('tasks'));
+        }
+        tasks.forEach(function (task, index) {
+            if (taskItem.textContent === task) {
+                
+                make sure we delete the right task
+                tasks.splice(index, 1);
+            }
+        });
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+```
