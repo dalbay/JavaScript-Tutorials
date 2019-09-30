@@ -18,11 +18,28 @@
               <h1 class="heading display-5 pb-3">Loan Calculator</h1>
               <!--Add a form tag here-->
               <form id="loan-form">
+                <!--add form-group for $ input-->
                 <div class="form-group">
                   <div class="input-group">
                     <span class="input-group-addon">$</span>
                     <input type="number" class="form-control" id="amount" placeholder="Loan Amount">
                   </div>
+                </div>
+                <!--add form-group for % input-->
+                <div class="form-group">
+                  <div class="input-group">
+                    <span class="input-group-addon">%</span>
+                    <input type="number" class="form-control" id="interest" placeholder="Interest">
+                  </div>
+                </div>
+                <!--add form group for years-->
+                <div class="form-group">
+                  <input type="number" class="form-control" id="years" placeholder="Years to Repay">
+                </div>
+                <!--add form group for button-->
+                <input type="submit" value="Calculate" class="btn btn-dark btn-block">
+                <div class="form-group">
+
                 </div>
               </form>
             </div>

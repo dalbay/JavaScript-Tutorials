@@ -19,6 +19,9 @@
                     <input type="number" class="form-control" id="amount" placeholder="Loan Amount">
                   </div>
                 </div>
+                <!--add another form-group for a submit button-->
+                .form-group     
+            
               </form>
             </div>
           </div>
