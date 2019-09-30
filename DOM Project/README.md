@@ -119,14 +119,16 @@ function clearTasks(){
 ```
 4. Filter through the tasks - add a keyup event listener which will fire as soon as we press on the key and let go.
 ```JavaScript
-  // Get the input element with the id=”filter” for filtering task events
+// Get the input element with the id=”filter” for filtering task events
   const filter = document.querySelector('#filter');
 
-  // Add a keyup event listener inside the loadAllEventListerners function for the filter const. 
+// Add a keyup event listener inside the loadAllEventListerners function for the filter const. 
   filter.addEventListener('keyup',filterTasks);
 
-  // Create the Filter Task Function
-  /* We will use the querySelectorAll() method, which returns a nodelist; if we use the getElementByClass() method, which returns an HTMLCollection, we would have to convert the collection to an array in order to use a forEach loop.
+// Create the Filter Task Function
+/* We will use the querySelectorAll() method, which returns a nodeList;  
+ * The getElementByClass() method, returns an HTMLCollection;
+   - this requires a conversion to an array in order to use a forEach loop.
 */
 function filterTasks(e) {
     // get input text value
@@ -153,4 +155,31 @@ function filterTasks(e) {
     // });
 }
   ```  
-![Dom filter list image](./images/domProject3Img.png)
+![Dom filter list image](./images/domProjectImg3.png)
+
+## Part 3 - Persist to Local Storage
+
+We are going to persist the data to local storage, so that the task actually stays after reloading the page.  
+
+1. Add a function call that takes the task as an argument. 
+```JavaScript
+    // Inside the addTask function, right after we add the task to the DOM
+    // Store in LS
+    storeTaskInLocalStorage(taskInput.value);
+
+// Store Task function
+function storeTaskInLocalStorage(task) {
+    let tasks;
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
+        // LS only stores strings, so we have to parse it when it comes out.
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.push(task);
+    // and save it as string to LS
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+```  
+Now, when we add a task and reload the page, it will disappear from the screen, but when you look at Chrome tools under Application -> Local Storage we will see the task persisted to local storage.  
+![Local Storage list image](./images/domProjectImg4.png)

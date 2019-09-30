@@ -40,8 +40,26 @@ function addTask(e) {
     //...append li to ul
     taskList.appendChild(li);
 
+    // Store in LS
+    storeTaskInLocalStorage(taskInput.value);
+
     e.preventDefault();
 }
+
+// Store Task function
+function storeTaskInLocalStorage(task) {
+    let tasks;
+    if (localStorage.getItem('tasks') === null) {
+        tasks = [];
+    } else {
+        // LS only stores strings, so we have to parse it when it comes out.
+        tasks = JSON.parse(localStorage.getItem('tasks'));
+    }
+    tasks.push(task);
+    // and save it as string to LS
+    localStorage.setItem('tasks', JSON.stringify(tasks));
+}
+  
 
 // Create the remove function:
 function removeTask(e) {
