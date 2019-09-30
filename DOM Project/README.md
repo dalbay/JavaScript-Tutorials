@@ -93,11 +93,11 @@ function removeTask(e) {
         }
     }
 }
-```
+```  
+This is how it looks like in the browser. Click on the yellow x for the task you want to remove; a confirmation will pop up and the list will be removed from the list.
 ![Dom manipulation remove](./images/domProjectImg2.png)
 
 3. Now add functionality for the Clear Tasks Button (This will clear all tasks ```<li>``` elements) 
-
 
 ```JavaScript
 // Get the <a> tag(Clear Tasks Button) from the DOM:
@@ -117,3 +117,40 @@ function clearTasks(){
   } 
 }
 ```
+4. Filter through the tasks - add a keyup event listener which will fire as soon as we press on the key and let go.
+```JavaScript
+  // Get the input element with the id=”filter” for filtering task events
+  const filter = document.querySelector('#filter');
+
+  // Add a keyup event listener inside the loadAllEventListerners function for the filter const. 
+  filter.addEventListener('keyup',filterTasks);
+
+  // Create the Filter Task Function
+  /* We will use the querySelectorAll() method, which returns a nodelist; if we use the getElementByClass() method, which returns an HTMLCollection, we would have to convert the collection to an array in order to use a forEach loop.
+*/
+function filterTasks(e) {
+    // get input text value
+    const text = e.target.value.toLowerCase();
+    // forEach list in the ul
+    document.querySelectorAll('.collection-item').forEach(function (task) {
+        // get the textNode value
+        const liItem = task.firstChild.textContent;
+        if (liItem.toLowerCase().indexOf(text) != -1) {
+            task.style.display = 'block';
+        } else {
+            task.style.display = 'none';
+        }
+    });
+    // // same as above... we use ‘=>’ instead of ‘function’
+    // liCollection = document.querySelectorAll('.collection-item');
+    // liCollection.forEach(element => {
+    //     const liItem = element.firstChild.textContent;
+    //     if (liItem.toLowerCase().indexOf(text) != -1) {
+    //         element.style.display = 'block';
+    //     } else {
+    //         element.style.display = 'none';
+    //     }
+    // });
+}
+  ```  
+![Dom filter list image](./images/domProject3Img.png)

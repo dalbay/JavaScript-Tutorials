@@ -6,11 +6,19 @@ const taskList = document.querySelector('.collection');
 //...get text input
 const taskInput = document.getElementById('task');
 //...general event-listener
+
+// Get the input element with the id=”filter” for filtering
+const filter = document.querySelector('#filter');
+
+
 function loadEventListeners() {
     //...listen for form submit and call functions addTask
     form.addEventListener('submit', addTask);
     // Remove task event that will remove the task from the list
     taskList.addEventListener('click', removeTask);
+    //Add a keyup event listener inside the loadAllEventListerners function for the filter const. 
+    // Filter tasks event
+  filter.addEventListener('keyup',filterTasks);
 }
 
 function addTask(e) {
@@ -45,6 +53,38 @@ function removeTask(e) {
         }
     }
 }
+
+
+/* We will use the querySelectorAll() method, which returns a nodelist; if we use the getElementByClass() method, which returns an HTMLCollection, we would have to convert the collection to an array in order to use a forEach loop.
+*/
+// Create the Filter Task Function
+function filterTasks(e) {
+    // get input text value
+    const text = e.target.value.toLowerCase();
+    // forEach list in the ul
+    document.querySelectorAll('.collection-item').forEach(function (task) {
+        // get the textNode value
+        const liItem = task.firstChild.textContent;
+        if (liItem.toLowerCase().indexOf(text) != -1) {
+            task.style.display = 'block';
+        } else {
+            task.style.display = 'none';
+        }
+    });
+    // // same as above... we use ‘=>’ instead of ‘function’
+    // liCollection = document.querySelectorAll('.collection-item');
+    // liCollection.forEach(element => {
+    //     const liItem = element.firstChild.textContent;
+    //     if (liItem.toLowerCase().indexOf(text) != -1) {
+    //         element.style.display = 'block';
+    //     } else {
+    //         element.style.display = 'none';
+    //     }
+    // });
+}
+  
+
+
 
 
 window.addEventListener('load', loadEventListeners, false);
