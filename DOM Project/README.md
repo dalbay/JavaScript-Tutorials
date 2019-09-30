@@ -8,7 +8,7 @@
   - This tutorial will use the Starter Template - copy files and extract them to your project folder.  
   ***Note:** You'll notice that there are two sets of the files. The min means that the file is "compressed" to reduce load times. These minified files are usually used in production while it is better to use the un-minified files during development.*  
 
-2. Link the files properly in your webpage. Generally, it is wise to import JavaScript files at the end of the body to reduce page load time. 
+2. Link the files to your webpage. Generally, it is wise to import JavaScript files at the end of the body to reduce page load time. 
 
 ```HTML
 
@@ -23,7 +23,9 @@
 
 ```
 
-3. The last external script that we need for out project is ***Font Awesome*** to get vector icons and social logos on your website.
+3. The last external script we add to the project is ***Font Awesome*** - *get vector icons and social logos on your website*.
 - Here is the link: Search for “font awesome cdn” -> https://www.bootstrapcdn.com/fontawesome/
-- Copy the link and paste under materialize.css in your project.
+- Copy the link and paste under materialize.css in your project.  
 
+*Here is the code and layout of the task list.  
+![Task list image](./images/domPorjectImg.png)
