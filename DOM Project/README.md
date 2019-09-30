@@ -27,5 +27,44 @@
 - Here is the link: Search for “font awesome cdn” -> https://www.bootstrapcdn.com/fontawesome/
 - Copy the link and paste under materialize.css in your project.  
 
-*Here is the code and layout of the task list.  
+*Here is the HTML code and layout of the task list*.  
 ![Task list image](./images/domProjectImg.png)
+
+*The app.js code – we are dynamically adding li elements to our ul .collection tag whenever we input a new task and prses the Add Task Button.*
+```JavaScript
+// Define UI Vars
+//...get form
+const form = document.querySelector('#task-form');
+//...get ul 
+const taskList = document.querySelector('.collection');
+//...get text input
+const taskInput = document.getElementById('task');
+//...general event-listener
+function loadEventListeners() {
+    //...listen for form submit and call functions addTask
+    form.addEventListener('submit', addTask);
+}
+
+function addTask(e) {
+    if (taskInput.value === '') {
+        alert('Add a task');
+    }
+    //...create the li elememt
+    const li = document.createElement('li');
+    li.className = 'collection-item'; // materialize class
+    li.appendChild(document.createTextNode(taskInput.value));
+
+    //...create the a tag inside the li element
+    const link = document.createElement('a');
+    link.className = 'delete-item secondary-content'; // materialize class
+    link.innerHTML = '<i class="fa fa-remove"></i>';
+
+    //...append link to li
+    li.appendChild(link);
+    //...append li to ul
+    taskList.appendChild(li);
+
+    e.preventDefault();
+}
+window.addEventListener('load', loadEventListeners, false);
+```
