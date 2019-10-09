@@ -1,7 +1,7 @@
 # DOM Manipulation Sample Project
 
 ## Table of Contents
-- [Part 2 - Delete & Filter Tasks from the List Items](#Part 2 - Delete & Filter Tasks from the List Items)
+- [Part 2 - Delete & Filter Tasks from the List Items](##Part-2---Delete-&-Filter-Tasks-from-the-List-Items)
 
 ## Part 1 - Add New Task List Items to the Page
 *Dynamically add ```<li>``` tags to an unordered list, append ```<a>``` links and inner HTML content to it.*  
