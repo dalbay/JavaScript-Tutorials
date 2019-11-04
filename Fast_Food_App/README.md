@@ -1,6 +1,6 @@
-## Fast Food App## Fast Food app
+## Fast Food app
 
-
+### Section 1
 - Fast Food app Create an html text input box, our customers are going to put their orders in here.
 ```HTML
           <form>
@@ -56,7 +56,7 @@ function fillMenu() {
   }
 }
 ```
-
+### Section 2
 - Fast Food app Create an object named menu where we'll save the menu for the restaurant.
 ```JavaScript
 const menu = {
@@ -157,7 +157,7 @@ function updateProductValue(product) {
 }
 ```
 
-
+### Section 3 - 4
 - Setup a http server with NodeJS. To do this there is going to have to be a new js file.  
   In that file require in the http and url builtin Nodejs modules and set them to a variable of the same name.  
   *(Note that this is a similar solution. Modify the code if necessary according to your requirements)*  
