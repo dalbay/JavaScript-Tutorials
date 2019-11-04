@@ -1,6 +1,6 @@
 ## Fast Food app
 
-### Section 1
+![fast food app img](images/fastFoodAppImg.png)
 - Fast Food app Create an html text input box, our customers are going to put their orders in here.
 ```HTML
           <form>
